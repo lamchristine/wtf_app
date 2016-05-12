@@ -11,12 +11,31 @@
   <script src='//cdn.rawgit.com/printercu/google-maps-utility-library-v3-read-only/master/infobox/src/infobox_packed.js' type='text/javascript'></script> <!-- only if you need custom infoboxes -->
 </head>
 <body>
+<div id="flash_error">
+  <% flash.each do |name, msg| %>
+  <li><%= name %> : <%= msg %></li>
+  <% end %>
+</div>
+<div id="user_nav">
+  <% if user_signed_in? %>
+  Signed in as <%= current_user.username %> Not you?
+  <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+  <% else %>
+  <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
+  <% end %>
+</div>
 
+<<<<<<< HEAD
+<div id="yield_start">
+<%= yield %>
+</div
+=======
 <div class="container-fluid" id="wrapper">
 
   <%= yield %>
 
 </div>
+>>>>>>> development
 
 </body>
 </html>
