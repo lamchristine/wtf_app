@@ -7,7 +7,7 @@
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
 User.destroy_all
-Event.destroy_all
+# Event.destroy_all
 
 thomas = User.create({
   avatar: "",
@@ -41,40 +41,40 @@ kathleen = User.create({
   username: "parisinthespring",
   password: "testkathleen"})
 
-Event.create({
-  title: "WTF!",
-  content: "Did you just hear that? I totally just heard a noise!",
-  user_id: kathleen.id
-  })
+# Event.create({
+#   title: "WTF!",
+#   content: "Did you just hear that? I totally just heard a noise!",
+#   user_id: kathleen.id
+#   })
+#
+# Event.create({
+#   title: "Police presence",
+#   content:"Don't go here, there are cops everywhere! They confiscated my ...",
+#   user_id: thomas.id
+#   })
+#
+# Event.create({
+#   title: "Stay away from Pier 39",
+#   content:"Total tourist trap. ITS A TRAP",
+#   user_id: dan.id
+#   })
+#
+# Event.create({
+#   title: "Blah.",
+#   content: "Sirens making really loud noises around downtown!",
+#   user_id: melanie.id
+#   })
+#
+# Event.create({
+#   title: "Graffiti!",
+#   content: "What's with this new graffiti on my building??",
+#   user_id: melanie.id
+#   })
+#
+# Event.create({
+#   title: "Trouble getting a taxi",
+#   content: "Taxis are protesting Uber and Lyft, you won't be able to get one today.",
+#   user_id: dan.id
+#   })
 
-Event.create({
-  title: "Police presence",
-  content:"Don't go here, there are cops everywhere! They confiscated my ...",
-  user_id: thomas.id
-  })
-
-Event.create({
-  title: "Stay away from Pier 39",
-  content:"Total tourist trap. ITS A TRAP",
-  user_id: dan.id
-  })
-
-Event.create({
-  title: "Blah.",
-  content: "Sirens making really loud noises around downtown!",
-  user_id: melanie.id
-  })
-
-Event.create({
-  title: "Graffiti!",
-  content: "What's with this new graffiti on my building??",
-  user_id: melanie.id
-  })
-
-Event.create({
-  title: "Trouble getting a taxi",
-  content: "Taxis are protesting Uber and Lyft, you won't be able to get one today.",
-  user_id: dan.id
-  })
-
-p "Created " + User.count.to_s + " Users, and " + Event.count.to_s + " events."
+p "Created " + User.count.to_s + " Users"
