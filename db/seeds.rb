@@ -16,7 +16,7 @@ thomas = User.create({
   email: "thomas@test.com",
   firstname: "Thomas",
   lastname: "Thurwood",
-  username: "imcool"
+  username: "imcool",
   password: "testthomas"})
 
 dan = User.create({
@@ -24,7 +24,7 @@ dan = User.create({
   email: "dan@test.com",
   firstname: "Dan",
   lastname: "Smith",
-  username: "dantheman"
+  username: "dantheman",
   password: "testdan"})
 
 melanie = User.create({
@@ -32,7 +32,7 @@ melanie = User.create({
   email: "melanie@test.com",
   firstname: "Melanie",
   lastname: "Sullivan",
-  username: "glassesmcgee"
+  username: "glassesmcgee",
   password: "testmelanie"})
 
 kathleen = User.create({
@@ -40,7 +40,7 @@ kathleen = User.create({
   email: "kathleen@test.com",
   firstname: "Kathleen",
   lastname: "Roberts",
-  username: "parisinthespring"
+  username: "parisinthespring",
   password: "testkathleen"})
 
 Event.create({
