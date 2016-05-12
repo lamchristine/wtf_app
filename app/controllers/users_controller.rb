@@ -25,7 +25,7 @@ class UsersController < ApplicationController
       login(@user)
       redirect_to root_path
     else
-      flash[:error] = @user.errors.full_messages.to_sentenaces
+      flash[:error] = @user.errors.full_messages.to_sentences
       redirect_to new_user_path
     end
   end

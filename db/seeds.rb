@@ -5,3 +5,78 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+Event.all.with_deleted.each do |p|
+  p.really_destroy!
+end
+User.destroy_all
+
+thomas = User.create({
+  avatar: "",
+  email: "thomas@test.com",
+  firstname: "Thomas",
+  lastname: "Thurwood",
+  username: "imcool"
+  password: "testthomas"})
+
+dan = User.create({
+  avatar: "",
+  email: "dan@test.com",
+  firstname: "Dan",
+  lastname: "Smith",
+  username: "dantheman"
+  password: "testdan"})
+
+melanie = User.create({
+  avatar: "",
+  email: "melanie@test.com",
+  firstname: "Melanie",
+  lastname: "Sullivan",
+  username: "glassesmcgee"
+  password: "testmelanie"})
+
+kathleen = User.create({
+  avatar: "",
+  email: "kathleen@test.com",
+  firstname: "Kathleen",
+  lastname: "Roberts",
+  username: "parisinthespring"
+  password: "testkathleen"})
+
+Event.create({
+  title: "WTF!",
+  content: "Did you just hear that? I totally just heard a noise!",
+  user_id: kathleen.id
+  })
+
+Event.create({
+  title: "Police presence",
+  content:"Don't go here, there are cops everywhere! They confiscated my ...",
+  user_id: thomas.id
+  })
+
+Event.create({
+  title: "Stay away from Pier 39",
+  content:"Total tourist trap. ITS A TRAP",
+  user_id: dan.id
+  })
+
+Event.create({
+  title: "Blah.",
+  content: "Sirens making really loud noises around downtown!",
+  user_id: melanie.id
+  })
+
+Event.create({
+  title: "Graffiti!",
+  content: "What's with this new graffiti on my building??",
+  user_id: melanie.id
+  })
+
+Event.create({
+  title: "Trouble getting a taxi",
+  content: "Taxis are protesting Uber and Lyft, you won't be able to get one today.",
+  user_id: dan.id
+  })
+
+p "Created " + User.count.to_s + " Users, and " + Post.count.to_s + " posts."
