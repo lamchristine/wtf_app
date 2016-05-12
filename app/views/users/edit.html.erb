@@ -1,0 +1,35 @@
+
+<div class = "row">
+ <div class = "col-xs-6 col-xs-offset-3">
+         <h1>Edit your information</h1>
+ </div>
+</div>
+
+     <div class = "row">
+      <div class = "col-xs-6 col-xs-offset-3">
+
+         <%= form_for @user do |f| %>
+
+           <div class="row top-spacer">
+             <%= f.text_field :firstname, placeholder: "First Name", class: "form-control" %>
+           </div>
+           <div class="row top-spacer">
+             <%= f.text_field :lastname, placeholder: "Last Name", class: "form-control" %>
+           </div>
+           <div class="row top-spacer">
+             <%= f.text_field :email, placeholder: "Email", class: "form-control" %>
+           </div>
+           <div class= "row top-spacer">
+             <%= f.password_field :password, placeholder: "Password", class: "form-control" %>
+           </div>
+           <div class="row top-spacer">
+             <%= f.text_field :avatar, placeholder: "Photo Url", class: "form-control" %>
+           </div>
+           <div class ="row top-spacer">
+             <%= f.submit "Save Changes", class: "btn btn-success btn-lg top-spacer" %>
+           </div>
+
+         <% end %>
+
+       </div>
+     </div>

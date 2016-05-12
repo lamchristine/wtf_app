@@ -5,6 +5,16 @@ class UsersController < ApplicationController
     render :new
   end
 
+  def show
+      @user = User.find_by(id: params[:id])
+      if current_user == @user
+        render :show
+      else
+        flash[:error] = "This profile is private."
+        redirect_to root_path
+      end
+  end
+
   def create
     @user = User.create(user_params)
     if @user.avatar == ""
@@ -18,6 +28,32 @@ class UsersController < ApplicationController
       flash[:error] = @user.errors.full_messages.to_sentenaces
       redirect_to new_user_path
     end
+  end
+
+  def edit
+    @user = User.find_by(id: params[:id])
+    if current_user == @user
+      render :edit
+    else
+      flash[:error] = "You cannot edit another users profile"
+      redirect_to user_path
+    end
+  end
+
+  def update
+    user = User.find_by(id: params[:id])
+      if user == current_user
+        user.update(user_params)
+        if user.avatar == ""
+          #Adds default avatar image if no image is uploaded
+          user.avatar = "default_avatar.jpeg"
+          user.save
+        end
+        redirect_to user_path
+      else
+        flash[:error] = "You cannot edit another users profile"
+        redirect_to user_path
+      end
   end
 
   private
