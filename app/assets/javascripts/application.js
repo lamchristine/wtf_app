@@ -34,7 +34,7 @@ $(document).ready(function(){
       markers = handler.addMarkers([
         {
           "lat": 37.7749,
-          "lng": 122.4194,
+          "lng": -122.4194,
           "picture": {
             "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
             "width":  32,

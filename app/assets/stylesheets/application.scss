@@ -14,3 +14,15 @@
  *= require_tree .
  *= require_self
  */
+
+
+#map {
+  height: 600px;
+  width: 800px;
+  img {
+    max-width: none;
+  }
+  label {
+    width: auto; display:inline;
+  }
+}
