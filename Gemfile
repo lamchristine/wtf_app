@@ -25,6 +25,8 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'hirb'
 
+gem 'devise'
+
 # Google Maps gem
 gem 'gmaps4rails'
 
