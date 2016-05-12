@@ -18,6 +18,8 @@
 //= require turbolinks
 //= require_tree .
 
+
+
 $(document).ready(function(){
 
   handler = Gmaps.build('Google');
@@ -48,4 +50,13 @@ $(document).ready(function(){
     }
   );
 
+
+  // sets Google Map height on load
+  $("#map").css("height", $( window ).height());
+
+});
+
+// resets Google Map height on change of screen size
+$(window).resize(function(){
+  $("#map").css("height", $( window ).height());
 });
