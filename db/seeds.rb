@@ -9,37 +9,37 @@
 User.destroy_all
 # Event.destroy_all
 
-thomas = User.create({
+User.create(
   avatar: "",
   email: "thomas@test.com",
   firstname: "Thomas",
   lastname: "Thurwood",
   username: "imcool",
-  password: "testthomas"})
+  password: "testthomas")
 
-dan = User.create({
+User.create(
   avatar: "",
   email: "dan@test.com",
   firstname: "Dan",
   lastname: "Smith",
   username: "dantheman",
-  password: "testdan"})
+  password: "testdan")
 
-melanie = User.create({
+User.create(
   avatar: "",
   email: "melanie@test.com",
   firstname: "Melanie",
   lastname: "Sullivan",
   username: "glassesmcgee",
-  password: "testmelanie"})
+  password: "testmelanie")
 
-kathleen = User.create({
+User.create(
   avatar: "",
   email: "kathleen@test.com",
   firstname: "Kathleen",
   lastname: "Roberts",
   username: "parisinthespring",
-  password: "testkathleen"})
+  password: "testkathleen")
 
 # Event.create({
 #   title: "WTF!",
