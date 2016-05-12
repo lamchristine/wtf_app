@@ -6,10 +6,8 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-Event.all.with_deleted.each do |p|
-  p.really_destroy!
-end
 User.destroy_all
+Event.destroy_all
 
 thomas = User.create({
   avatar: "",
@@ -79,4 +77,4 @@ Event.create({
   user_id: dan.id
   })
 
-p "Created " + User.count.to_s + " Users, and " + Post.count.to_s + " posts."
+p "Created " + User.count.to_s + " Users, and " + Event.count.to_s + " events."
