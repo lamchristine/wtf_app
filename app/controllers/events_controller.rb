@@ -25,7 +25,7 @@ class EventsController < ApplicationController
   end
 
   def edit
-     @user = User.find_by(id: params[:user_id])
+     user = current_user
      @event = Event.find_by(id: params[:id])
 
      if current_user == @event.user
@@ -39,7 +39,7 @@ class EventsController < ApplicationController
   def update
     event = Event.find_by(id: params[:id])
     event.update(event_params)
-    redirect_to index_path
+    redirect_to root_path
   end
 
 
