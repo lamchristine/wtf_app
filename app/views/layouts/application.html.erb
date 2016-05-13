@@ -11,47 +11,49 @@
 </head>
 <body>
 <div class="container-fluid">
+  <div class = "row">
 
-  <nav class="navbar navbar-default">
-    <div class="container-fluid">
+    <nav class="navbar navbar-default">
+      <div class="container-fluid">
 
-      <!-- <div class="navbar-header">
-      </div> -->
+        <!-- <div class="navbar-header">
+        </div> -->
 
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse">
-      <%= link_to "WTF", root_path, class: "navbar-brand" %>
-      <% if user_signed_in? %>
-        <ul class="nav navbar-nav navbar-left">
-          <li><a href="#">Heard It</a></li>
-          <li><a href="#">Saw It</a></li>
-          <button type="button" class="btn btn-secondary" onclick="geoFindMe()">Get my location</button>
-        </ul>
+      <!-- Collect the nav links, forms, and other content for toggling -->
+      <div class="collapse navbar-collapse">
+        <%= link_to "WTF", root_path, class: "navbar-brand" %>
+        <% if user_signed_in? %>
+          <ul class="nav navbar-nav navbar-left">
+            <li><button type="button" class="btn btn-default navbar-btn space-left">Heard It</button> </li>
+            <li><button type="button" class="btn btn-default navbar-btn space-left"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Saw It</button> </li>
+            <li><button type="button" class="btn btn-default navbar-btn space-left" onclick="geoFindMe()">Get my location</button></li>
+          </ul>
+        <% end %>
+
+          <ul class="nav navbar-nav navbar-right" id="user_nav">
+            <% if user_signed_in? %>
+              <li><%= link_to current_user.username, user_path(current_user) %></li>
+              <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
+            <% else %>
+              <li><%= link_to "Sign up", new_user_registration_path %></li>
+              <li><%= link_to "Sign in", new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div><!-- /.navbar-collapse -->
+      </div>
+    </nav>
+    <div id="flash_error">
+      <% flash.each do |name, msg| %>
+        <% if name === "notice" %>
+          <li class = "bg-success"><%= name %> : <%= msg %></li>
+        <% else %>
+          <li class = "bg-danger"><%= name %> : <%= msg %></li>
+        <% end %>
       <% end %>
-
-        <ul class="nav navbar-nav navbar-right" id="user_nav">
-          <% if user_signed_in? %>
-            <li><%= link_to current_user.username, user_path(current_user) %></li>
-            <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
-          <% else %>
-            <li><%= link_to "Sign up", new_user_registration_path %></li>
-            <li><%= link_to "Sign in", new_user_session_path %></li>
-          <% end %>
-        </ul>
-      </div><!-- /.navbar-collapse -->
     </div>
-  </nav>
-  <div id="flash_error">
-    <% flash.each do |name, msg| %>
-      <% if name === "notice" %>
-        <li class = "bg-success"><%= name %> : <%= msg %></li>
-      <% else %>
-        <li class = "bg-danger"><%= name %> : <%= msg %></li>
-      <% end %>
-    <% end %>
-  </div>
 
-  <%= yield %>
+    <%= yield %>
+  </div>
 </div>
 
 </body>
