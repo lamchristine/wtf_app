@@ -2,15 +2,27 @@ Rails.application.routes.draw do
   devise_for :users
   root    "events#index"
 
-  get     "/events", to: "events#index", as: "events"
+  # get     "/events", to: "events#index", as: "events"
 
 
   resources :users do
+    resources :events do
+    end
   end
 
 end
 
 
+# root GET    /                                         events#index
+#                  events GET    /events(.:format)                         events#index
+#             user_events GET    /users/:user_id/events(.:format)          events#index
+#                         POST   /users/:user_id/events(.:format)          events#create
+#          new_user_event GET    /users/:user_id/events/new(.:format)      events#new
+#         edit_user_event GET    /users/:user_id/events/:id/edit(.:format) events#edit
+#              user_event GET    /users/:user_id/events/:id(.:format)      events#show
+#                         PATCH  /users/:user_id/events/:id(.:format)      events#update
+#                         PUT    /users/:user_id/events/:id(.:format)      events#update
+#                         DELETE /users/:user_id/events/:id(.:format)      events#destroy
 
 # root GET    /                         events#index
 # events GET    /events(.:format)         events#index
