@@ -61,7 +61,7 @@ function geoFindMe() {
   var output = document.getElementById("out");
 
   if (!navigator.geolocation){
-    output.innerHTML = "Geolocation is not supported by your browser";
+    console.log( "Geolocation is not supported by your browser");
     return;
   }
 
@@ -69,19 +69,18 @@ function geoFindMe() {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
 
-    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+    console.log('Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°');
 
     var img = new Image();
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
 
-    output.appendChild(img);
   }
 
   function error() {
-    output.innerHTML = "Unable to retrieve your location";
+    console.log("Unable to retrieve your location");
   }
 
-  output.innerHTML = "<p>Locating…</p>";
+  console.log("Locating…");
 
   navigator.geolocation.getCurrentPosition(success, error);
 }
