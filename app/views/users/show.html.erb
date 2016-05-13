@@ -1,40 +1,38 @@
-<div id="user_show">
-  <!--User Header-->
-  <header>
-    <div class="header-content">
-      <div class="header-content-inner">
-      </div>
-    </div>
-  </header>
-  <!--end User Header-->
+<div class = "col-xs-10 col-xs-offset-1 space-top card" id="user_show">
 
   <section id="user_itin">
-    <div class="container">
-      <!--beginning of profile section-->
-      <div class="col-md-4 text-center " >
-        <div class="centered">
-          <div class="profile_pic">
-            <%= image_tag @user.avatar, :class => "img-circle center-block" %>
+
+    <!-- beginning of profile section -->
+    <div class="row">
+      <div class = "col-sm-4 col-sm-offset-1 col-xs-offset-1">
+        <div class = "row">
+          <div class = "col-sm-8 col-sm-offset-2 col-xs-offset-1 col-xs-9">
+            <%= image_tag "http://placehold.it/250x250" %>
+
           </div>
-          <p>
-            <br>
-            First Name: <%= @user.firstname %>
-            <br>
-            Last Name: <%= @user.lastname %>
-            <br>
-            Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %>
-          </p>
+
+        </div>
+        <div class = "row">
+          <h3><%= @user.firstname %> <%= @user.lastname %></h3>
+        </div>
+        <div class = "row">
+          <h4><em><%= @user.username %></em></h4>
+        </div>
+        <div class = "row">
+          Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %>
         </div>
       </div>
-    <!--end of profile section-->
+      <!-- end of profile section -->
 
-    <!--beginning of itinerary posts-->
-      <div class="col-md-8">
-        <div class="row text-center">
-          <h2> <%= @user.username %>'s Posts </h2>
-          <%= link_to "Add", new_user_event_path(current_user), class: "btn btn-primary" %>
-        </div>
-        <div class="row" >
+      <!-- beginning of posts -->
+      <div class = "col-sm-5 col-sm-offset-1 col-xs-offset-1">
+        <div class="row">
+          <h4> <%= @user.username %>'s Posts </h4>
+          <hr />
+          <div class="row">
+            <%= link_to "Add", new_user_event_path(current_user), class: "btn btn-primary" %>
+          </div>
+
           <!--********LOOP THROUGH USER POST****************-->
           <% @user.events.each do |event| %>
             <div class="row">
@@ -44,9 +42,11 @@
               <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger", method: :delete %>
             </div>
           <% end %>
-          <!--********CLOSE POST LOOP****************-->
+
         </div>
-      </div> <!--closes col-md-8-->
-    </div> <!--closes container-->
-  </section><!--closes section-->
-</div> <!--closes user_show-->
+      </div>
+
+    </div>
+  </section>
+
+</div>
