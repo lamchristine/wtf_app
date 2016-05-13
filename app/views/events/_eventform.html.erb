@@ -1,3 +1,7 @@
+<div class="current-location">Your Current Location
+  <input id="pac-input" class="controls" type="text" placeholder="Search Location" onclick="initAutocomplete()">
+</div>
+
 <div class="row space-top">
   <%= f.label :title, class:"control-label" %>
 </div>
@@ -9,7 +13,7 @@
   <%= f.label :content, class:"control-label" %>
 </div>
 <div class="row">
-  <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "Content" %>
+  <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "What happened?" %>
 </div>
 
 <div class="row space-top">
@@ -29,6 +33,6 @@
 </div>
 
 <div class="row space-top">
-  <%= f.submit "Submit", class: "btn btn-primary" %>
+  <%= f.submit "Submit", class: "btn btn-primary",  "onclick" => "initAutocomplete()" %>
   <%= link_to "Cancel", :back, class: "btn btn-default" %>
 </div>

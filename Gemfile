@@ -41,6 +41,9 @@ gem 'will_paginate', '~> 3.1.0'
 #adding bootstrap styling to paginate gem"
 gem 'will_paginate-bootstrap'
 
+
+gem 'bootstrap-sass', '~> 3.3.6'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
