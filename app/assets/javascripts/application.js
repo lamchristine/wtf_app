@@ -31,6 +31,9 @@ $(document).ready(function(){
   // geoFindMe();
   setMapHeight();
   geoFindMe();
+  $('.event-btn').click(function(){
+    console.log("hi");
+  });
 });
 
 $(document).on("page:load", function(){

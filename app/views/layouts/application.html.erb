@@ -24,8 +24,8 @@
         <%= link_to "WTF", root_path, class: "navbar-brand" %>
         <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-left">
-            <li><%= button_to "Heard It", new_user_event_path(current_user), class: "btn btn-default navbar-btn space-left", name:"category", value:"Heard It", method:"get" %></li>
-            <li><%= button_to "Saw It", new_user_event_path(current_user), class: "btn btn-default navbar-btn space-left",  name:"category", value:"Saw It", method:"get" %></li>
+            <li><%= button_to "Heard It", new_user_event_path(current_user), class: "btn btn-default navbar-btn space-left event-btn", name:"category", value:"Heard It", method:"get" %></li>
+            <li><%= button_to "Saw It", new_user_event_path(current_user), class: "btn btn-default navbar-btn space-left event-btn",  name:"category", value:"Saw It", method:"get" %></li>
             <li><button type="button" class="btn btn-default navbar-btn space-left" onclick="geoFindMe()">Get my location</button></li>
           </ul>
         <% end %>
