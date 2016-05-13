@@ -52,7 +52,11 @@ $(document).ready(function(){
   // sets Google Map height on load
   $("#map").css("height", $( window ).height());
 
-  function geoFindMe() {
+
+
+});
+
+function geoFindMe() {
   var output = document.getElementById("out");
 
   if (!navigator.geolocation){
@@ -80,10 +84,6 @@ $(document).ready(function(){
 
   navigator.geolocation.getCurrentPosition(success, error);
 }
-
-
-
-});
 
 // resets Google Map height on change of screen size
 $(window).resize(function(){
