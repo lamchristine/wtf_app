@@ -47,14 +47,43 @@ $(document).ready(function(){
       ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-    }
-  );
-
+    });
 
   // sets Google Map height on load
   $("#map").css("height", $( window ).height());
 
 });
+
+
+
+
+function geoFindMe() {
+  var output = document.getElementById("out");
+
+  if (!navigator.geolocation){
+    console.log( "Geolocation is not supported by your browser");
+    return;
+  }
+
+  function success(position) {
+    var latitude  = position.coords.latitude;
+    var longitude = position.coords.longitude;
+
+    console.log('Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°');
+
+    var img = new Image();
+    img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+  }
+
+  function error() {
+    console.log("Unable to retrieve your location");
+  }
+
+  console.log("Locating…");
+
+  navigator.geolocation.getCurrentPosition(success, error);
+}
 
 // resets Google Map height on change of screen size
 $(window).resize(function(){
