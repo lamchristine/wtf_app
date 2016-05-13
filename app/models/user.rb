@@ -5,4 +5,9 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :events
+
+  # def avatar
+  #   avatar.present? ? avatar.url : "userprofile.png"
+  # end
+
 end

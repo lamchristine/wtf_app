@@ -10,7 +10,7 @@ User.destroy_all
 # Event.destroy_all
 
 thomas = User.create(
-  avatar: "",
+  avatar: "userprofile.png",
   email: "thomas@test.com",
   firstname: "Thomas",
   lastname: "Thurwood",
@@ -18,7 +18,7 @@ thomas = User.create(
   password: "testthomas")
 
 dan = User.create(
-  avatar: "",
+  avatar: "userprofile.png",
   email: "dan@test.com",
   firstname: "Dan",
   lastname: "Smith",
@@ -26,7 +26,7 @@ dan = User.create(
   password: "testdan")
 
 melanie = User.create(
-  avatar: "",
+  avatar: "userprofile.png",
   email: "melanie@test.com",
   firstname: "Melanie",
   lastname: "Sullivan",
@@ -34,7 +34,7 @@ melanie = User.create(
   password: "testmelanie")
 
 kathleen = User.create(
-  avatar: "",
+  avatar: "userprofile.png",
   email: "kathleen@test.com",
   firstname: "Kathleen",
   lastname: "Roberts",
