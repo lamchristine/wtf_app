@@ -42,7 +42,7 @@
           </div>
 
           <!--********LOOP THROUGH USER POST****************-->
-          <% @user.events.each do |event| %>
+          <% @user.events.order("created_at desc").each do |event| %>
             <div class="row">
               <h4>Event Title: <%= event.title %></h4>
               <h5><b>Published: </b><%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</h5>
