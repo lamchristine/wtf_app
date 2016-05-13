@@ -25,7 +25,6 @@ class EventsController < ApplicationController
   end
 
   def edit
-     user = current_user
      @event = Event.find_by(id: params[:id])
 
      if current_user == @event.user
@@ -42,7 +41,11 @@ class EventsController < ApplicationController
     redirect_to root_path
   end
 
-
+  def destroy
+    event = Event.find_by(id: params[:id])
+    event.destroy
+    redirect_to user_path(current_user)
+  end
 
 
   private
