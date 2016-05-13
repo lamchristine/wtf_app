@@ -18,24 +18,31 @@
 //= require turbolinks
 //= require_tree .
 
-var navHeight = 55;
+var navHeight = 52;
+var latitude;
+var longitude;
+function setMapHeight(){
+  $("#map").css("height", $( window ).height() - navHeight);
+}
 
 $(document).ready(function(){
-  // googleMapBuild();
+  setMapHeight();
+  googleMapBuild();
   geoFindMe();
 });
 
 $(document).on("page:load", function(){
 
   // sets Google Map height on load
-  $("#map").css("height", $( window ).height() - navHeight);
-
-  googleMapBuild();
+  setMapHeight();
+  geoFindMe();
+  // googleMapBuild();
 });
 
 // resets Google Map height on change of screen size
 $(window).resize(function(){
-  $("#map").css("height", $( window ).height() - navHeight);
+  setMapHeight();
+  geoFindMe();
 });
 
 function googleMapBuild() {
@@ -52,8 +59,8 @@ function googleMapBuild() {
     function(){
       markers = handler.addMarkers([
         {
-          "lat": 37.7749,
-          "lng": -122.4194,
+          "lat": latitude,
+          "lng": longitude,
           "picture": {
             "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
             "width":  32,
@@ -64,6 +71,7 @@ function googleMapBuild() {
       ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
+      handler.getMap().setZoom(19);
     });
 }
 
@@ -77,14 +85,14 @@ function geoFindMe() {
   }
 
   function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
+    latitude  = position.coords.latitude;
+    longitude = position.coords.longitude;
 
     console.log('Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°');
 
     var img = new Image();
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
-
+    googleMapBuild();
   }
 
   function error() {
