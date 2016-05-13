@@ -18,7 +18,7 @@
 //= require turbolinks
 //= require_tree .
 
-
+var navHeight = 55;
 
 $(document).ready(function(){
 
@@ -50,7 +50,7 @@ $(document).ready(function(){
     });
 
   // sets Google Map height on load
-  $("#map").css("height", $( window ).height());
+  $("#map").css("height", $( window ).height() - navHeight);
 
 });
 
@@ -87,5 +87,5 @@ function geoFindMe() {
 
 // resets Google Map height on change of screen size
 $(window).resize(function(){
-  $("#map").css("height", $( window ).height());
+  $("#map").css("height", $( window ).height() - navHeight);
 });
