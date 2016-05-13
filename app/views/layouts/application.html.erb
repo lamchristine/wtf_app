@@ -25,7 +25,7 @@
         <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-left">
             <li><button type="button" class="btn btn-default navbar-btn space-left">Heard It</button> </li>
-            <li><button type="button" class="btn btn-default navbar-btn space-left"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>Saw It</button> </li>
+            <li><button type="button" class="btn btn-default navbar-btn space-left">Saw It</button> </li>
             <li><button type="button" class="btn btn-default navbar-btn space-left" onclick="geoFindMe()">Get my location</button></li>
           </ul>
         <% end %>
@@ -52,7 +52,18 @@
       <% end %>
     </div>
 
+    <div class = "row">
+      <div class="col-xs-12">
+
+        <div id="map">
+        </div>
+
+      </div>
+
     <%= yield %>
+
+      </div>
+    </div>
   </div>
 </div>
 
