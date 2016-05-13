@@ -35,6 +35,12 @@ html,body {
     // margin-top:50px; /* adjust top margin to your header height */
 }
 
+.bg-success, .bg-danger {
+  text-align: center;
+  padding: 10px 20px 20px 10px;
+  margin: 0px;
+}
+
 .navbar-collapse.collapse {
 display: block!important;
 }
@@ -49,4 +55,9 @@ margin-right: -15px !important;
 
 .navbar-right {
 float: right!important;
+}
+
+.navbar {
+  margin-bottom: 0px!important;
+  border-radius: 0px;
 }
