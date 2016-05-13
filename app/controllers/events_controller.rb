@@ -8,6 +8,7 @@ class EventsController < ApplicationController
   def new
      @user = User.find_by(id: params[:user_id])
      @event = Event.new
+     @longitude = (@event[:user_id])
      if params[:category]
        @event.category = params[:category]
      end
@@ -53,6 +54,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :content, :category)
+    params.require(:event).permit(:title, :content, :category, :longitude, :latitude)
   end
 end
