@@ -3,6 +3,7 @@
   <h4>Create New Event</h4>
     <div class="row">
       <div class="col-xs-10">
+        <input id="pac-input" class="controls" type="text" placeholder="Search Box">
         <%= form_for(@event, url:"/users/#{current_user.id}/events",:html => {class: "form-horizontal", role: "form"}) do |f| %>
           <div class="form-group">
             <div class="control-label col-sm-2">
@@ -33,7 +34,7 @@
               <%= f.label :submit %>
             </div>
             <div class="col-sm-4">
-            <%= f.submit "Submit", class: "btn btn-primary" %>
+            <%= f.submit "Submit", class: "btn btn-primary", :id => 'drop-pin' %>
             <%= link_to "Cancel", :back, class: "btn btn-default" %>
             </div>
           </div>

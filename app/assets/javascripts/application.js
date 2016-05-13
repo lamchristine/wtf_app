@@ -65,8 +65,7 @@ function googleMapBuild() {
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
     });
-};
-
+}
 
 
 function geoFindMe() {
