@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   def edit
     @user = User.find_by(id: params[:id])
     if current_user == @user
-      render :edit
+      redirect_to edit_user_registration_path
     else
       flash[:error] = "You cannot edit another users profile"
       redirect_to user_path
@@ -41,19 +41,20 @@ class UsersController < ApplicationController
   end
 
   def update
-    user = User.find_by(id: params[:id])
-      if user == current_user
-        user.update(user_params)
-        if user.avatar == ""
-          #Adds default avatar image if no image is uploaded
-          user.avatar = "default_avatar.jpeg"
-          user.save
-        end
-        redirect_to user_path
-      else
-        flash[:error] = "You cannot edit another users profile"
-        redirect_to user_path
-      end
+    debugger
+    @user = User.find_by(id: params[:id])
+    # if @user == current_user
+    #   @user.update(user_params)
+    #   if @user.avatar == ""
+    #     #Adds default avatar image if no image is uploaded
+    #     @user.avatar = "userprofile.png"
+    #     @user.save
+    #   end
+    #   redirect_to user_path
+    # else
+    #   flash[:error] = "You cannot edit another users profile"
+    #   redirect_to user_path
+    # end
   end
 
   def destroy
