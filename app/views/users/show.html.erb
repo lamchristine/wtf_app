@@ -25,12 +25,7 @@
               <br>
               Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %>
             </p>
-            <!--user authorization for future use??-->
-            <!-- <%# isAuthor = allowed?(@user.id) %>
-            <%# if isAuthor %>
-              <%#= link_to "Edit", edit_user_path(@user), class: "btn btn-primary" %>
-              <%#= link_to "Add Itinerary", new_itinerary_path, class: "btn btn-primary" %>
-            <%# end %> -->
+
           </div>
         </div>
       <!--end of profile section-->
@@ -38,7 +33,7 @@
       <!--beginning of itinerary posts-->
       <div class="col-md-8">
         <div class="row text-center">
-          <h2> <%= @user.firstname %>'s Posts </h2>
+          <h2> <%= @user.username %>'s Posts </h2>
         </div>
         <div class="row" >
           <!--********LOOP THROUGH USER POST****************-->
