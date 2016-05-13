@@ -60,20 +60,78 @@ function googleMapBuild() {
     },
     function(){
       markers = handler.addMarkers([
+
+
         {
           "lat": latitude,
           "lng": longitude,
           "picture": {
-            "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+            "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
             "width":  32,
             "height": 32
           },
           "infowindow": "hello!"
+        },
+
+        {
+          "lat": 37.8044,
+          "lng": -122.2711,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "Awesome city!"
+        },
+
+        {
+          "lat": 32.7495,
+          "lng": -117.2470,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "Beautiful beach!"
+        },
+
+        {
+          "lat": 37.7594,
+          "lng": -122.5107,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "The fog is rolling in!"
+        },
+
+        {
+          "lat": 39.5296,
+          "lng": -119.8138,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "Great pancakes!"
+        },
+
+        {
+          "lat": 40.7608,
+          "lng": -111.8910,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "I love the skiing!"
         }
+
       ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(19);
+      handler.getMap().setZoom(4);
     });
 }
 
