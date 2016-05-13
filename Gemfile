@@ -35,6 +35,12 @@ gem 'underscore-rails'
 # Helper to convert time to relative time
 gem 'time_ago_in_words', '~> 0.1.1'
 
+#pagination gem
+gem 'will_paginate', '~> 3.1.0'
+
+#adding bootstrap styling to paginate gem"
+gem 'will_paginate-bootstrap'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

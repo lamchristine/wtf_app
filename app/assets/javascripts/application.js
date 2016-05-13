@@ -90,13 +90,14 @@ function setMapHeight(){
 }
 
 $(document).ready(function(){
+  // setMapHeight();
+  // googleMapBuild();
+  // geoFindMe();
   setMapHeight();
-  googleMapBuild();
   geoFindMe();
 });
 
 $(document).on("page:load", function(){
-
   // sets Google Map height on load
   setMapHeight();
   geoFindMe();
@@ -106,7 +107,7 @@ $(document).on("page:load", function(){
 // resets Google Map height on change of screen size
 $(window).resize(function(){
   setMapHeight();
-  geoFindMe();
+  // geoFindMe();
 });
 
 function googleMapBuild() {
@@ -151,9 +152,7 @@ function geoFindMe() {
   function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;
-
     console.log('Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°');
-
     var img = new Image();
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
     googleMapBuild();
@@ -164,6 +163,5 @@ function geoFindMe() {
   }
 
   console.log("Locating…");
-
   navigator.geolocation.getCurrentPosition(success, error);
 }
