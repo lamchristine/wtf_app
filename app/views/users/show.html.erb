@@ -48,7 +48,7 @@
               <h5><b>Published: </b><%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</h5>
               <h5>Event Content: <%= event.content %></h5>
               <%= link_to "Edit", edit_user_event_path(@user, event), class: "btn btn-primary" %>
-              <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger", method: :delete %>
+              <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger", method: :delete, data: {confirm: "Are you sure?"} %>
             </div>
           <% end %>
           <div class="row text-center">
