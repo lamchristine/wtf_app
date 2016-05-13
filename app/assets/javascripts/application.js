@@ -15,7 +15,6 @@
 //= require bootstrap-3.3.6.min
 //= require underscore
 //= require gmaps/google
-//= require gmaps4rails_builder.coffee
 //= require turbolinks
 //= require_tree .
 
