@@ -11,39 +11,42 @@
   <section id="user_itin">
     <div class="container">
       <!--beginning of profile section-->
-      <div class="row">
-        <div class="col-md-4 text-center " >
-          <div class="centered">
-            <div class="profile_pic">
-              <%= image_tag @user.avatar, :class => "img-circle center-block" %>
-            </div>
-            <p>
-              <br>
-              First Name: <%= @user.firstname %>
-              <br>
-              Last Name: <%= @user.lastname %>
-              <br>
-              Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %>
-            </p>
-
+      <div class="col-md-4 text-center " >
+        <div class="centered">
+          <div class="profile_pic">
+            <%= image_tag @user.avatar, :class => "img-circle center-block" %>
           </div>
+          <p>
+            <br>
+            First Name: <%= @user.firstname %>
+            <br>
+            Last Name: <%= @user.lastname %>
+            <br>
+            Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %>
+          </p>
         </div>
-      <!--end of profile section-->
+      </div>
+    <!--end of profile section-->
 
-      <!--beginning of itinerary posts-->
+    <!--beginning of itinerary posts-->
       <div class="col-md-8">
         <div class="row text-center">
           <h2> <%= @user.username %>'s Posts </h2>
+          <%= link_to "Add", new_user_event_path(current_user), class: "btn btn-primary" %>
         </div>
         <div class="row" >
           <!--********LOOP THROUGH USER POST****************-->
-
-
-
+          <% @user.events.each do |event| %>
+            <div class="row">
+              <h4>Event Title: <%= event.title %></h4>
+              <h5>Event Content: <%= event.content %></h5>
+              <%= link_to "Edit", edit_user_event_path(@user, event), class: "btn btn-primary" %>
+              <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger", method: :delete %>
+            </div>
+          <% end %>
           <!--********CLOSE POST LOOP****************-->
-          </div>
-        </div> <!--closes col-md-8-->
-      </div><!--closes row-->
+        </div>
+      </div> <!--closes col-md-8-->
     </div> <!--closes container-->
   </section><!--closes section-->
 </div> <!--closes user_show-->
