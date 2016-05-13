@@ -8,6 +8,9 @@ class EventsController < ApplicationController
   def new
      @user = User.find_by(id: params[:user_id])
      @event = Event.new
+     if params[:category]
+       @event.category = params[:category]
+     end
      render :new
   end
 
