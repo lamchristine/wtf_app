@@ -5,9 +5,12 @@
     </div>
   </div>
 </div>
-<%= link_to "Add", new_user_event_path(current_user), class: "btn btn-default" %>
+
+<% if current_user %>
+  <%= link_to "Add", new_user_event_path(current_user), class: "btn btn-default" %>
+<% end %>
 
 NEW POST ADDED
-<% current_user.events.all.each do |event| %>
-<%= event.title %>
+<% @events.all.each do |event| %>
+  <%= event.title %>
 <% end %>

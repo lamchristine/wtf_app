@@ -1,5 +1,10 @@
 class EventsController < ApplicationController
 
+  def index
+    @events = Event.all
+    render :index
+  end
+
   def new
      @user = User.find_by(id: params[:user_id])
      @event = Event.new
