@@ -21,7 +21,24 @@
 var navHeight = 55;
 
 $(document).ready(function(){
+  // googleMapBuild();
+  geoFindMe();
+});
 
+$(document).on("page:load", function(){
+
+  // sets Google Map height on load
+  $("#map").css("height", $( window ).height() - navHeight);
+
+  googleMapBuild();
+});
+
+// resets Google Map height on change of screen size
+$(window).resize(function(){
+  $("#map").css("height", $( window ).height() - navHeight);
+});
+
+function googleMapBuild() {
   handler = Gmaps.build('Google');
   handler.buildMap({
       provider: {
@@ -48,12 +65,7 @@ $(document).ready(function(){
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
     });
-
-  // sets Google Map height on load
-  $("#map").css("height", $( window ).height() - navHeight);
-
-});
-
+};
 
 
 
@@ -84,8 +96,3 @@ function geoFindMe() {
 
   navigator.geolocation.getCurrentPosition(success, error);
 }
-
-// resets Google Map height on change of screen size
-$(window).resize(function(){
-  $("#map").css("height", $( window ).height() - navHeight);
-});
