@@ -21,6 +21,7 @@
 var navHeight = 52;
 var latitude;
 var longitude;
+
 function setMapHeight(){
   $("#map").css("height", $( window ).height() - navHeight);
 }
@@ -59,23 +60,80 @@ function googleMapBuild() {
     },
     function(){
       markers = handler.addMarkers([
+
+
         {
           "lat": latitude,
           "lng": longitude,
           "picture": {
-            "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
+            "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
             "width":  32,
             "height": 32
           },
           "infowindow": "hello!"
+        },
+
+        {
+          "lat": 37.8044,
+          "lng": -122.2711,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "Awesome city!"
+        },
+
+        {
+          "lat": 32.7495,
+          "lng": -117.2470,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "Beautiful beach!"
+        },
+
+        {
+          "lat": 37.7594,
+          "lng": -122.5107,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "The fog is rolling in!"
+        },
+
+        {
+          "lat": 39.5296,
+          "lng": -119.8138,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "Great pancakes!"
+        },
+
+        {
+          "lat": 40.7608,
+          "lng": -111.8910,
+          "picture": {
+          "url": "http://maps.google.com/intl/en_us/mapfiles/ms/micons/purple.png",
+          "width":  32,
+          "height": 32
+          },
+          "infowindow": "I love the skiing!"
         }
+
       ]);
       handler.bounds.extendWith(markers);
       handler.fitMapToBounds();
-      handler.getMap().setZoom(19);
+      handler.getMap().setZoom(4);
     });
 }
-
 
 
 function geoFindMe() {
@@ -101,4 +159,68 @@ function geoFindMe() {
 
   console.log("Locating…");
   navigator.geolocation.getCurrentPosition(success, error);
+}
+
+function initAutocomplete() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    center: {lat: "latitude", lng: "longitude"},
+    zoom: 13,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  });
+
+  // Create the search box and link it to the UI element.
+  var input = document.getElementById('pac-input');
+  var searchBox = new google.maps.places.SearchBox(input);
+  map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
+
+  // Bias the SearchBox results towards current map's viewport.
+  map.addListener('bounds_changed', function() {
+    searchBox.setBounds(map.getBounds());
+  });
+
+  var markers = [];
+  // Listen for the event fired when the user selects a prediction and retrieve
+  // more details for that place.
+  searchBox.addListener('places_changed', function() {
+    var places = searchBox.getPlaces();
+
+    if (places.length === 0) {
+      return;
+    }
+
+    // Clear out the old markers.
+    markers.forEach(function(marker) {
+      marker.setMap(null);
+    });
+    markers = [];
+
+    // For each place, get the icon, name and location.
+    var bounds = new google.maps.LatLngBounds();
+    places.forEach(function(place) {
+      var icon = {
+        url: place.icon,
+        size: new google.maps.Size(71, 71),
+        origin: new google.maps.Point(0, 0),
+        anchor: new google.maps.Point(17, 34),
+        scaledSize: new google.maps.Size(25, 25)
+      };
+
+      // Create a marker for each place.
+      markers.push(new google.maps.Marker({
+        map: map,
+        icon: icon,
+        title: place.name,
+        position: place.geometry.location
+      }));
+
+      if (place.geometry.viewport) {
+        // Only geocodes have viewport.
+        bounds.union(place.geometry.viewport);
+      } else {
+        bounds.extend(place.geometry.location);
+      }
+    });
+    map.fitBounds(bounds);
+  });
+
 }
