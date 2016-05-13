@@ -19,6 +19,8 @@
 //= require_tree .
 
 var navHeight = 55;
+var latitude
+var longitude
 
 $(document).ready(function(){
   // googleMapBuild();
@@ -52,8 +54,8 @@ function googleMapBuild() {
     function(){
       markers = handler.addMarkers([
         {
-          "lat": 37.7749,
-          "lng": -122.4194,
+          "lat": latitude,
+          "lng": longitude,
           "picture": {
             "url": "http://people.mozilla.com/~faaborg/files/shiretoko/firefoxIcon/firefox-32.png",
             "width":  32,
@@ -78,8 +80,8 @@ function geoFindMe() {
   }
 
   function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
+    latitude  = position.coords.latitude;
+    longitude = position.coords.longitude;
 
     console.log('Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°');
 
