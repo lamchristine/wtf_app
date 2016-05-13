@@ -42,7 +42,7 @@
           </div>
 
           <!--********LOOP THROUGH USER POST****************-->
-          <% @user.events.order("created_at desc").each do |event| %>
+          <% @events.order("created_at desc").each do |event| %>
             <div class="row">
               <h4>Event Title: <%= event.title %></h4>
               <h5><b>Published: </b><%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</h5>
@@ -51,6 +51,9 @@
               <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger", method: :delete %>
             </div>
           <% end %>
+          <div class="row text-center">
+            <%= will_paginate @events,  renderer: BootstrapPagination::Rails %>
+          </div>
 
         </div>
       </div>
