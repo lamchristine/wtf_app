@@ -22,8 +22,8 @@ class EventsController < ApplicationController
     if @event.save
       redirect_to root_path
     else
-      flash[:error] = @event.errors.full_messages.to_sentences
-      redirect_to new_user_event_path(event[:user_id])
+      flash[:error] = @event.errors.full_messages.to_sentence
+      redirect_to new_user_event_path(@event[:user_id])
     end
   end
 
