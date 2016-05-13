@@ -5,3 +5,12 @@
     </div>
   </div>
 </div>
+
+<% if current_user %>
+  <%= link_to "Add", new_user_event_path(current_user), class: "btn btn-default" %>
+<% end %>
+
+NEW POST ADDED
+<% @events.all.each do |event| %>
+  <%= event.title %>
+<% end %>

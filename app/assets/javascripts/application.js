@@ -52,15 +52,16 @@ $(document).ready(function(){
   // sets Google Map height on load
   $("#map").css("height", $( window ).height());
 
-
-
 });
+
+
+
 
 function geoFindMe() {
   var output = document.getElementById("out");
 
   if (!navigator.geolocation){
-    output.innerHTML = "<p>Geolocation is not supported by your browser</p>";
+    output.innerHTML = "Geolocation is not supported by your browser";
     return;
   }
 
