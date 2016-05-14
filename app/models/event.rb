@@ -1,7 +1,7 @@
 class Event < ActiveRecord::Base
   belongs_to :user
-  has_one :longitude
-  has_one :latitude
+  # has_one :longitude
+  # has_one :latitude
 
   validates :title, :content, :category,
     presence: true
