@@ -16,6 +16,7 @@
 //= require underscore
 //= require gmaps/google
 //= require turbolinks
+//= require jquery-readyselector
 //= require_tree .
 
 var navHeight = 52;
@@ -25,6 +26,8 @@ var longitude;
 function setMapHeight(){
   $("#map").css("height", $( window ).height() - navHeight);
 }
+
+
 
 $(document).ready(function(){
   // setMapHeight();
@@ -133,6 +136,8 @@ function googleMapBuild() {
       handler.fitMapToBounds();
       handler.getMap().setZoom(10);
     });
+
+
 }
 
 
@@ -150,16 +155,22 @@ function geoFindMe() {
     console.log('Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°');
     var img = new Image();
     img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
+
+    console.log($('body').attr('class'));
+
+    $('.lat').attr( "value", latitude );
+    $('.long').attr( "value", longitude );
     googleMapBuild();
   }
 
   function error() {
-    console.log("Unable to retrieve your location");
+    console.error("Unable to retrieve your location");
   }
 
   console.log("Locating…");
   navigator.geolocation.getCurrentPosition(success, error);
 }
+
 
 function initAutocomplete() {
   var map = new google.maps.Map(document.getElementById('map'), {
