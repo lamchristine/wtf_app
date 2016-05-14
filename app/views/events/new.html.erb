@@ -1,20 +1,28 @@
 <html>
+  <head>
+  </head>
+    <body>
+      <div class = "col-xs-8 col-xs-offset-2 space-top card" id="event-form">
+        <div class = "col-xs-10 col-xs-offset-1 space-top">
 
-<body>
+          <div class="row">
+            <h2>Report An Event</h2>
+              <div class="row">
+                <input id="pac-input" class="controls pull left" type="text"
+            placeholder="Enter a location">
+                <div id="map-small" class="pull right">
+              </div>
+            </div>
+          </div>
 
-<div class = "col-xs-8 col-xs-offset-2 space-top card" id="event-form">
-  <div class = "col-xs-10 col-xs-offset-1 space-top">
-    <div class="row">
-
-      <h2>Report An Event</h2>
-    </div>
-    <div class="form-group">
+      <div class="form-group">
       <%= form_for(@event, url:"/users/#{current_user.id}/events",:html => {class: "form-horizontal", role: "form"}) do |f| %>
         <%= render :partial => 'eventform', :locals => {:f => f} %>
       <% end %>
     </div>
   </div>
 </div>
-
+<script src="//maps.google.com/maps/api/js?v=3.23&key=AIzaSyBfCRSEfQ6vvMOgm6JXb7XgqSrSDlWE7Ss&libraries=geometry,places&callback=initMap" type="text/javascript">
+</script>
 </body>
 </html>
