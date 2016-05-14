@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root    "events#index"
 
   # get     "/events", to: "events#index", as: "events"
-
+  get       "/about", to: "about#index"
 
   resources :users do
     resources :events do
