@@ -9,6 +9,12 @@ class EventsController < ApplicationController
      @user = User.find_by(id: params[:user_id])
      @event = Event.new
      @longitude = (@event[:user_id])
+
+
+
+
+
+
      if params[:category]
        @event.category = params[:category]
      end
@@ -16,8 +22,23 @@ class EventsController < ApplicationController
   end
 
   def create
+
+
+
     @user = current_user
-    @event = Event.create(event_params)
+    @event = Event.new(event_params)
+
+    lat = params[:latitude].to_s
+    long = params[:longitude].to_s
+
+    puts "latitude: " + lat.to_s
+    puts "lat params: " + params[:latitude].to_s
+
+    @event.latitude = lat
+    @event.longitude = long
+
+    @event.save
+
     @user.events << (@event)
 
     if @event.save
