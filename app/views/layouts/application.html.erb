@@ -27,26 +27,10 @@
         <%= link_to "WTF", root_path, class: "navbar-brand" %>
         <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-left">
-            <li>
-              <%= form_tag(new_user_event_path(current_user), method: "get") do %>
-                <%= hidden_field_tag("latitude", 0, class:"lat") %>
-                <%= hidden_field_tag("longitude", 0, class:"long") %>
-                <%= hidden_field_tag("category", "Heard It") %>
-                <%= submit_tag("Heard It", class: "btn btn-default navbar-btn space-left event-btn") %>
-              <% end %>
-            </li>
-            <li>
-              <%= form_tag(new_user_event_path(current_user), method: "get") do %>
-                <%= hidden_field_tag("latitude", 0, class:"lat") %>
-                <%= hidden_field_tag("longitude", 0, class:"long") %>
-                <%= hidden_field_tag("category", "Saw It") %>
-                <%= submit_tag("Saw It", class: "btn btn-default navbar-btn space-left event-btn") %>
-              <% end %>
-            </li>
+            
+            <li><%= button_to "Heard It", new_user_event_path(current_user), class: "btn btn-default navbar-btn space-left", name:"category", value:"Heard It", method:"get" %></li>
+            <li><%= button_to "Saw It", new_user_event_path(current_user), class: "btn btn-default navbar-btn space-left",  name:"category", value:"Saw It", method:"get" %></li>
             <li><button type="button" class="btn btn-default navbar-btn space-left" onclick="geoFindMe()">Get my location</button></li>
-
-
-
 
           </ul>
         <% end %>
