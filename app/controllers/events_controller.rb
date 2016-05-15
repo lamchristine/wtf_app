@@ -2,19 +2,17 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-    render :index
+
+    @hash = Gmaps4rails.build_markers(@events) do |event, marker|
+    marker.lat event.latitude
+    marker.lng event.longitude
+  end
   end
 
   def new
      @user = User.find_by(id: params[:user_id])
      @event = Event.new
-     @longitude = (@event[:user_id])
-
-
-
-
-
-
+    #  @longitude = (@event[:user_id])
      if params[:category]
        @event.category = params[:category]
      end
@@ -22,20 +20,18 @@ class EventsController < ApplicationController
   end
 
   def create
-
-
-
     @user = current_user
     @event = Event.new(event_params)
 
-    lat = params[:latitude].to_s
-    long = params[:longitude].to_s
 
-    puts "latitude: " + lat.to_s
-    puts "lat params: " + params[:latitude].to_s
+    # lat = params[:latitude].to_s
+    # long = params[:longitude].to_s
+    #
+    # puts "latitude: " + lat.to_s
+    # puts "lat params: " + params[:latitude].to_s
 
-    @event.latitude = lat
-    @event.longitude = long
+    # @event.latitude = lat
+    # @event.longitude = long
 
     @event.save
 
@@ -51,7 +47,6 @@ class EventsController < ApplicationController
 
   def edit
      @event = Event.find_by(id: params[:id])
-
      if current_user == @event.user
        render :edit
      else
@@ -75,6 +70,6 @@ class EventsController < ApplicationController
 
   private
   def event_params
-    params.require(:event).permit(:title, :content, :category, :longitude, :latitude)
+    params.require(:event).permit(:title, :content, :category, :longitude, :latitude, :address)
   end
 end
