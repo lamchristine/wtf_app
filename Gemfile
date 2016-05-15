@@ -56,6 +56,9 @@ gem 'bootstrap-sass', '~> 3.3.6'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug'
+
+  # Allows use of .env file by accessing the local variables before starting the application, to test mailers.
+  gem 'foreman'
 end
 
 group :development do
