@@ -1,4 +1,32 @@
-<h5><%= link_to event, user_path %></h5>
-<p>posted by:
-  <%= username %>
-</p>
+<div class = "col-xs-12 popup">
+  <div class = "col-xs-3">
+    <div class="row">
+      <%= image_tag avatar, class: "avatar" %>
+    </div>
+    <div class="row space-top">
+      <% if category == "Saw It" %>
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <strong>Seen by: <%= username %></strong>
+      <% else %>
+        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> <strong>Heard by: <%= username %></strong>
+      <% end %>
+
+    </div>
+  </div>
+  <div class = "col-xs-9">
+    <h4>
+      <% if user == current_user %>
+        <%= link_to event, user_path %>
+      <% else %>
+        <%= event %>
+      <% end %>
+    </h4>
+
+    <p>
+      <%= content %>
+    </p>
+
+    <p>
+
+    </p>
+  </div>
+</div>
