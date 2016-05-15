@@ -2,11 +2,11 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
-
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
-    marker.lat event.latitude
-    marker.lng event.longitude
-  end
+      marker.lat event.latitude
+      marker.lng event.longitude
+      marker.infowindow render_to_string(:partial => "/events/info", :locals => { :event => event.title, :user_path => user_path(current_user), :username => current_user.username })
+    end
   end
 
   def new
