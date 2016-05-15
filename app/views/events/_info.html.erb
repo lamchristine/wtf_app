@@ -15,9 +15,9 @@
   <div class = "col-xs-9">
     <h4>
       <% if user == current_user %>
-        <%= link_to event, user_path %>
+        <%= link_to title, edit_user_event_path(current_user, event) %>
       <% else %>
-        <%= event %>
+        <%= title %>
       <% end %>
     </h4>
 
