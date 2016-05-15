@@ -15,7 +15,7 @@ class Event < ActiveRecord::Base
   validates :content,
       length: {maximum: 140}
 
-  if :address == nil
+  if :address.present?
     geocoded_by :address
   else
     geocoded_by :ip_address,

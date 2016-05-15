@@ -22,7 +22,10 @@ class EventsController < ApplicationController
   def create
     @user = current_user
     @event = Event.new(event_params)
-    @event.ip_address = "198.200.32.4"
+    @event.longitude = request.location.longitude
+    @event.latitude = request.location.latitude
+    # @event.ip_address = "198.200.32.4"
+
     # lat = params[:latitude].to_s
     # long = params[:longitude].to_s
     #

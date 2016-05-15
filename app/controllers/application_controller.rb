@@ -11,14 +11,15 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.for(:account_update) { |u| u.permit(:firstname, :lastname, :email, :password, :current_password) }
   end
 
-
+################### development ONLY ################
 #lookup method which calls the Geocoder IP lookup directly passing in the results of request.remote_ip.
-  # def location
-  #   if Rails.env.development?
-  #     Geocoder.search(request.remote_ip).first
-  #   else
-  #     request.location
-  #   end
-  # end
+
+# def location
+#   if Rails.env.development?
+#     Geocoder.search(request.remote_ip).first
+#   else
+#     request.location
+#   end
+# end
 
 end
