@@ -1,19 +1,16 @@
 <div class = "col-xs-10 col-xs-offset-1 space-top card" id="user_show">
-  <%= link_to root_path, class: "pull-right" do %>
-    <i class="glyphicon glyphicon-remove"></i>
-  <% end %>
 
   <section id="user_itin">
 
     <!-- beginning of profile section -->
     <div class="row">
-      <div class = "col-sm-4 col-sm-offset-1 col-xs-offset-1">
+      <div class = "col-sm-4 col-sm-offset-1 col-xs-offset-1 space-top">
         <div class = "row">
           <div class = "col-sm-8 col-sm-offset-2 col-xs-offset-1 col-xs-9">
             <% if @user.avatar %>
-              <%= image_tag @user.avatar %>
+              <%= image_tag @user.avatar, class:"avatar" %>
             <% else %>
-              <%= image_tag "userprofile.png" %>
+              <%= image_tag "userprofile.png", class:"avatar" %>
             <% end %>
           </div>
 
@@ -34,7 +31,10 @@
       <!-- end of profile section -->
 
       <!-- beginning of posts -->
-      <div class = "col-sm-5 col-sm-offset-1 col-xs-offset-1">
+      <div class = "col-sm-5 col-sm-offset-1 col-xs-offset-1 space-top">
+        <%= link_to root_path, class: "pull-right" do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
         <div class="row">
 
           <h4> <%= @user.username %>'s Posts </h4>

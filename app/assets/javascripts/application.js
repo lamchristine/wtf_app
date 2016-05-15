@@ -17,22 +17,22 @@
 //= require underscore
 //= require gmaps/google
 //= require_tree .
-// 
-// var navHeight = 52;
-//
-// function setMapHeight(){
-//   $("#map").css("height", $( window ).height() - navHeight);
-// }
-//
-// $(document).ready(function(){
-//   setMapHeight();
-// });
-//
-// $(document).on("page:load", function(){
-//   setMapHeight();
-// });
-//
-// // resets Google Map height on change of screen size
-// $(window).resize(function(){
-//   setMapHeight();
-// });
+
+var navHeight = 52;
+
+function setMapHeight(){
+  $("#map").css("height", $( window ).height() - navHeight);
+}
+
+$(document).ready(function(){
+  setMapHeight();
+});
+
+$(document).on("page:load", function(){
+  setMapHeight();
+});
+
+// resets Google Map height on change of screen size
+$(window).resize(function(){
+  setMapHeight();
+});
