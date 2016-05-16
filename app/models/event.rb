@@ -23,6 +23,7 @@ class Event < ActiveRecord::Base
     :longitude => :longitude
   end
 
+
   #avoid unnecessary API requests: only want to geocode an object only when
   #an address is present, or the address has been changed since last save(or it has
   #never been saved)
