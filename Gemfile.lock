@@ -180,11 +180,8 @@ DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
   devise
-<<<<<<< HEAD
   foreman
-=======
   geocoder
->>>>>>> development
   gmaps4rails
   hirb
   jbuilder (~> 2.0)
