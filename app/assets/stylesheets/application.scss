@@ -144,6 +144,13 @@ float: right!important;
   margin-top: 10px;
 }
 
+.verified {
+  .btn {
+    font-size: 22px;
+  }
+  // font-size: 22px;
+}
+
 @media(max-width: 768px){
   .user-info .row {
     margin-right: 3px!important;

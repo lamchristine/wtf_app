@@ -83,7 +83,7 @@ class EventsController < ApplicationController
   end
 
   def downvote
-    @event = Event.find(params[:id])
+    @event = Event.find_by(id: params[:event_id])
     @event.downvote_by current_user
     redirect_to :back
   end
