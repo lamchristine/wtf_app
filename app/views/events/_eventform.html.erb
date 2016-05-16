@@ -1,11 +1,28 @@
-User current location or enter alternate address below
+<div class ="row">
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
+      <input type="radio" name="options" id="current_location" autocomplete="off" checked> Use My Current Location
+    </label>
+    <label class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
+      <input type="radio" name="options" id="enter_address" autocomplete="off"> Enter an Address
+    </label>
 
-<div class="row space-top">
-  <%= f.label :address, class:"control-label" %>
+  </div>
 </div>
-<div class="row">
-  <%= f.text_field :address, class: "form-control", placeholder: "Address", autofocus: true %>
+<div class = "row">
+  <div class="collapse" id="collapse">
+    <div class="well">
+      <div class="row">
+        <%= f.label :address, class:"control-label" %>
+      </div>
+      <div class="row">
+        <%= f.text_field :address, class: "form-control", placeholder: "Address", autofocus: true %>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 <div class="row space-top">
   <%= f.label :title, class:"control-label" %>
@@ -66,8 +83,6 @@ User current location or enter alternate address below
     </div>
 
   <% end %>
-
-
 
 </div>
 
