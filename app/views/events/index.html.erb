@@ -11,7 +11,12 @@
   handler = Gmaps.build('Google');
   handler.buildMap({ provider: {scrollwheel: false}, internal: {id: 'map'}}, function(){
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
+    //to center the map AND adjust zoom to see ALL markers
     handler.bounds.extendWith(markers);
     handler.fitMapToBounds();
+    //to center on a marker
+    // handler.map.centerOn(markers[0])
+    //to set the map zoom
+    // handler.getMap().setZoom(21);
   });
 </script>

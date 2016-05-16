@@ -10,6 +10,7 @@ class UsersController < ApplicationController
         flash[:error] = "This profile is private."
         redirect_to root_path
       end
+
   end
 
   private

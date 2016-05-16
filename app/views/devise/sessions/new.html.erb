@@ -13,11 +13,11 @@
       <div class="field row space-top">
         <div class = "col-sm-6">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+          <%= f.email_field :email, autofocus: true, class: "form-control", required: "required" %>
         </div>
         <div class = "col-sm-6">
           <%= f.label :password %><br />
-          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
+          <%= f.password_field :password, autocomplete: "off", class: "form-control", required: "required" %>
         </div>
       </div>
 
