@@ -27,7 +27,7 @@ class EventsController < ApplicationController
 
     # checks to see if address is blank, if it us then geocode by ip_address
     # test with hardcoded ip address since using local host
-    # @event.address = "145.200.32.4" if params[:event][:address].blank?
+    # @event.address = "198.200.32.4" if params[:event][:address].blank?
     @event.address = request.ip if params[:event][:address].blank?
     @event.save!
 
