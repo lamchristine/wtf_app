@@ -5,14 +5,16 @@ class EventsController < ApplicationController
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
-      marker.infowindow render_to_string(:partial => "/events/info", :locals => { :event => event.title, :user_path => user_path(event.user), :username => event.user.username })
+      marker.infowindow render_to_string(:partial => "/events/info", :locals => { :title => event.title,
+        :user_path => user_path(event.user), :username => event.user.username, :content => event.content,
+        :user => event.user, :avatar => event.user.avatar, :category => event.category, :event => event
+      })
     end
   end
 
   def new
      @user = User.find_by(id: params[:user_id])
      @event = Event.new
-    #  @longitude = (@event[:user_id])
      if params[:category]
        @event.category = params[:category]
      end
@@ -22,6 +24,7 @@ class EventsController < ApplicationController
   def create
     @user = current_user
     @event = Event.new(event_params)
+
     # checks to see if address is blank, if it us then geocode by ip_address
     # test with hardcoded ip address since using local host
     # @event.address = "145.200.32.4" if params[:event][:address].blank?
@@ -59,7 +62,6 @@ class EventsController < ApplicationController
     event.destroy
     redirect_to user_path(current_user)
   end
-
 
   private
   def event_params

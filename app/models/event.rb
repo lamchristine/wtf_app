@@ -1,7 +1,5 @@
 class Event < ActiveRecord::Base
   belongs_to :user
-  # has_one :longitude
-  # has_one :latitude
 
   attr_accessor :address
 
@@ -10,7 +8,7 @@ class Event < ActiveRecord::Base
     presence: true
 
   validates :title,
-    length: {maximum: 15}
+    length: {maximum: 50}
 
   validates :content,
       length: {maximum: 140}
@@ -19,6 +17,7 @@ class Event < ActiveRecord::Base
     geocoded_by :address,
       :latitude => :latitude,
       :longitude => :longitude
+
 
 
   #avoid unnecessary API requests: only want to geocode an object only when
