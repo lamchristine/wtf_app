@@ -5,7 +5,6 @@
         <h2>Edit Profile</h2>
       </div>
     </div>
-    <%= link_to "close", root_path, class: "btn btn-secondary" %>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
@@ -72,10 +71,15 @@
       </div>
       <div class = "row space-top">
         <div class = "col-sm-12">
-          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-block btn-danger" %>
-          <%= link_to "Back", :back %>
+          <%= button_to "Cancel", user_path(current_user), class:"btn btn-block btn-default" %>
         </div>
       </div>
+      <div class = "row space-top">
+        <div class = "col-sm-12">
+          <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-block btn-danger" %>
+        </div>
+      </div>
+
     <% end %>
 
   </div>
