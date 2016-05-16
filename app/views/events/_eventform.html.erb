@@ -11,14 +11,14 @@ User current location or enter alternate address below
   <%= f.label :title, class:"control-label" %>
 </div>
 <div class="row">
-  <%= f.text_field :title, class: "form-control", placeholder: "Title", autofocus: true %>
+  <%= f.text_field :title, class: "form-control", placeholder: "Title", autofocus: true, required: "required" %>
 </div>
 
 <div class="row space-top">
   <%= f.label :content, class:"control-label" %>
 </div>
 <div class="row">
-  <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "What happened?" %>
+  <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "What happened?", required: "required" %>
 </div>
 
 <div class="row space-top">
@@ -29,11 +29,11 @@ User current location or enter alternate address below
   <% if params[:category] == "Saw It" || @event.category == "Saw It" %>
 
     <div class="btn-group" data-toggle="buttons">
-      <%= f.label :category, 'Heard It', class: "btn btn-primary" do %>
+      <%= f.label :category, 'Heard It', required: "required", class: "btn btn-primary" do %>
         <%= f.radio_button :category, 'Heard It' %>
         <span class="glyphicon glyphicon-headphones"></span> Heard It
       <% end %>
-      <%= f.label :category, 'Saw It', class: "btn btn-primary active" do %>
+      <%= f.label :category, 'Saw It', required: "required", class: "btn btn-primary active" do %>
         <%= f.radio_button :category, 'Saw It' %>
         <span class="glyphicon glyphicon-eye-open"></span> Saw It
       <% end %>
@@ -42,11 +42,11 @@ User current location or enter alternate address below
   <% else %>
 
     <div class="btn-group" data-toggle="buttons">
-      <%= f.label :category, 'Heard It', class: "btn btn-primary active" do %>
+      <%= f.label :category, 'Heard It', required: "required", class: "btn btn-primary active" do %>
         <%= f.radio_button :category, 'Heard It' %>
         <span class="glyphicon glyphicon-headphones"></span> Heard It
       <% end %>
-      <%= f.label :category, 'Saw It', class: "btn btn-primary" do %>
+      <%= f.label :category, 'Saw It', required: "required", class: "btn btn-primary" do %>
         <%= f.radio_button :category, 'Saw It' %>
         <span class="glyphicon glyphicon-eye-open"></span> Saw It
       <% end %>

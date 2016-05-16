@@ -14,11 +14,11 @@
       <div class="row">
         <div class = "col-sm-6 space-top">
           <%= f.label "First Name" %><br />
-          <%= f.text_field :firstname, autocomplete: "off", class: "form-control" %>
+          <%= f.text_field :firstname, autocomplete: "off", class: "form-control", required: "required" %>
         </div>
         <div class = "col-sm-6 space-top">
           <%= f.label "Last Name" %><br />
-          <%= f.text_field :lastname, autocomplete: "off", class: "form-control" %>
+          <%= f.text_field :lastname, autocomplete: "off", class: "form-control", required: "required" %>
         </div>
       </div>
       <div class = "row">
@@ -28,7 +28,7 @@
       <div class="row">
         <div class = "col-sm-6">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, class: "form-control" %>
+          <%= f.email_field :email, autofocus: true, class: "form-control", required: "required" %>
         </div>
 
       </div>
@@ -62,6 +62,7 @@
 
             </div>
           </div>
+          <hr />
         </div>
 
 
@@ -74,7 +75,7 @@
       </div>
       <div class = "row space-top">
         <div class = "col-sm-12">
-          <%= button_to "Cancel", user_path(current_user), class:"btn btn-block btn-default" %>
+          <%= link_to "Cancel", user_path(@user), method: "get", class:"btn btn-block btn-default" %>
         </div>
       </div>
       <div class = "row space-top">
