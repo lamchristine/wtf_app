@@ -24,7 +24,7 @@
     <p>
       <%= content %>
     </p>
-
+ 
 
     <p><em><%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</em></p>
 
@@ -38,12 +38,14 @@
 
           <% if current_user %>
             <% if current_user.voted_up_on? event %>
-              <%= link_to user_event_dislike_path(event.user, event), method: "put", class: "btn btn-default btn-sm active" do %>
-                <span class = "glyphicon glyphicon-ok"></span> <span class="badge"><%= event.get_upvotes.size %></span>
+              <%= button_to user_event_dislike_path(event.user, event), method: "put",
+                class: "btn btn-default btn-sm active likebtn", remote: true do %>
+                <span class = "glyphicon glyphicon-ok"></span> <span class="badge count"><%= event.get_upvotes.size %></span>
               <% end %>
             <% else %>
-              <%= link_to user_event_like_path(event.user, event), method: "put", class: "btn btn-default btn-sm" do %>
-                <span class = "glyphicon glyphicon-ok"></span> <span class="badge"><%= event.get_upvotes.size %></span>
+              <%= button_to user_event_like_path(event.user, event), method: "put",
+                class: "btn btn-default btn-sm likebtn", remote: true do %>
+                <span class = "glyphicon glyphicon-ok"></span> <span class="badge count"><%= event.get_upvotes.size %></span>
               <% end %>
             <% end %>
 
