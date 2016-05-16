@@ -67,9 +67,8 @@ ul li{
 }
 
 .popup {
-  // img {
-  //   width: 80px;
-  // }
+
+
 }
 
 .center{
@@ -133,6 +132,10 @@ margin-right: -15px !important;
 float: right!important;
 }
 
+.popup-reported {
+  font-size: 11px;
+}
+
 .space-left {
   margin-left: 10px;
 }
@@ -142,7 +145,6 @@ float: right!important;
 }
 
 @media(max-width: 768px){
-
   .user-info .row {
     margin-right: 3px!important;
   }
