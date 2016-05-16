@@ -26,6 +26,9 @@ function setMapHeight(){
 
 $(document).ready(function(){
   setMapHeight();
+  $('.like').click( function() {
+    console.log("liked!");
+  });
 
 });
 
