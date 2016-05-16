@@ -27,7 +27,6 @@ class EventsController < ApplicationController
     @event.longitude = request.location.longitude
     @event.latitude = request.location.latitude
 
-
     @user.events << (@event)
 
     if @event.save
