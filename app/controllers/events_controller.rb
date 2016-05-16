@@ -78,14 +78,30 @@ class EventsController < ApplicationController
 
   def upvote
     @event = Event.find_by(id: params[:event_id])
-    @event.liked_by current_user
-    redirect_to :back
+
+    respond_to do |format|
+
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+      format.js { render :layout => false }
+
+      @event.liked_by current_user
+    
+    end
   end
 
   def downvote
     @event = Event.find_by(id: params[:event_id])
-    @event.downvote_by current_user
-    redirect_to :back
+
+    respond_to do |format|
+
+      format.html { redirect_to :back }
+      format.json { head :no_content }
+      format.js { render :layout => false }
+
+      @event.downvote_by current_user
+
+    end
   end
 
   private
