@@ -31,11 +31,11 @@ User current location or enter alternate address below
     <div class="btn-group" data-toggle="buttons">
       <%= f.label :category, 'Heard It', class: "btn btn-primary" do %>
         <%= f.radio_button :category, 'Heard It' %>
-        Heard It
+        <span class="glyphicon glyphicon-headphones"></span> Heard It
       <% end %>
       <%= f.label :category, 'Saw It', class: "btn btn-primary active" do %>
         <%= f.radio_button :category, 'Saw It' %>
-        Saw It
+        <span class="glyphicon glyphicon-eye-open"></span> Saw It
       <% end %>
     </div>
 
@@ -44,11 +44,11 @@ User current location or enter alternate address below
     <div class="btn-group" data-toggle="buttons">
       <%= f.label :category, 'Heard It', class: "btn btn-primary active" do %>
         <%= f.radio_button :category, 'Heard It' %>
-        Heard It
+        <span class="glyphicon glyphicon-headphones"></span> Heard It
       <% end %>
       <%= f.label :category, 'Saw It', class: "btn btn-primary" do %>
         <%= f.radio_button :category, 'Saw It' %>
-        Saw It
+        <span class="glyphicon glyphicon-eye-open"></span> Saw It
       <% end %>
     </div>
   <% end %>
