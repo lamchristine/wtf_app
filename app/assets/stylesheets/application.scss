@@ -43,9 +43,18 @@ img {
   width: 100%;
 }
 
+#error_explanation,h2{
+  font-size: 16px;
+  display: inline;
+}
+
 .navbar-btn {
   height: 34px;
   padding: 6px 12px 6px 12px!important;
+}
+
+ul li{
+  list-style: none;
 }
 
 .popup {
