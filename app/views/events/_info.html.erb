@@ -3,13 +3,13 @@
     <div class="row">
       <%= image_tag avatar, class: "avatar" %>
     </div>
-    <div class="row space-top">
+    <div class="row space-top popup-reported">
       <% if category == "Saw It" %>
-        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span> <strong>Seen by: <%= username %></strong>
+        <span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span>
       <% else %>
-        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span> <strong>Heard by: <%= username %></strong>
+        <span class="glyphicon glyphicon-headphones" aria-hidden="true"></span>
       <% end %>
-
+      <strong>Reported by: <%= username %></strong>
     </div>
   </div>
   <div class = "col-xs-9">
