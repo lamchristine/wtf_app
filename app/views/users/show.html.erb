@@ -42,7 +42,10 @@
           <hr />
         </div>
         <div class="row">
-          <%= link_to "Report a New Event", new_user_event_path(current_user), class: "btn btn-success btn-block" %>
+
+          <%= link_to new_user_event_path(current_user), {class: "btn btn-success btn-block"} do %>
+             <i class="glyphicon glyphicon-exclamation-sign"></i><span class = "space-left">Report a New Event</span>
+          <% end %>
           <hr />
         </div>
 
