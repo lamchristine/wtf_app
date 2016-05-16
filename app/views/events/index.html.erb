@@ -8,15 +8,101 @@
 </div>
 
 <script>
+  var mapStyle = [
+    {
+        "featureType": "landscape.natural",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "color": "#e0efef"
+            }
+        ]
+    },
+    {
+        "featureType": "poi",
+        "elementType": "geometry.fill",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "hue": "#1900ff"
+            },
+            {
+                "color": "#c0e8e8"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "lightness": 100
+            },
+            {
+                "visibility": "simplified"
+            }
+        ]
+    },
+    {
+        "featureType": "road",
+        "elementType": "labels",
+        "stylers": [
+            {
+                "visibility": "off"
+            }
+        ]
+    },
+    {
+        "featureType": "transit.line",
+        "elementType": "geometry",
+        "stylers": [
+            {
+                "visibility": "on"
+            },
+            {
+                "lightness": 700
+            }
+        ]
+    },
+    {
+        "featureType": "water",
+        "elementType": "all",
+        "stylers": [
+            {
+                "color": "#7dcdcd"
+            }
+        ]
+    }
+  ];
+
+
+
+
+
   handler = Gmaps.build('Google');
-  handler.buildMap({ provider: {scrollwheel: false}, internal: {id: 'map'}}, function(){
-    markers = handler.addMarkers(<%=raw @hash.to_json %>);
-    //to center the map AND adjust zoom to see ALL markers
-    handler.bounds.extendWith(markers);
-    handler.fitMapToBounds();
-    //to center on a marker
-    // handler.map.centerOn(markers[0])
-    //to set the map zoom
-    // handler.getMap().setZoom(21);
-  });
+  handler.buildMap({
+    provider: {
+      scrollwheel: false,
+      styles: mapStyle
+    },
+    internal: {
+      id: 'map'
+    }
+  }, function(){
+      markers = handler.addMarkers(<%=raw @hash.to_json %>);
+      handler.bounds.extendWith(markers);
+      //to center the map AND adjust zoom to see ALL markers
+      handler.fitMapToBounds();
+      //to center on a marker
+      // handler.map.centerOn(markers[0])
+      //to set the map zoom
+      // handler.getMap().setZoom(21);
+    }
+  );
+
 </script>
