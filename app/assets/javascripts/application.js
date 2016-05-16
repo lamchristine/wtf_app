@@ -26,10 +26,12 @@ function setMapHeight(){
 
 $(document).ready(function(){
   setMapHeight();
+
 });
 
 $(document).on("page:load", function(){
   setMapHeight();
+
 });
 
 // resets Google Map height on change of screen size

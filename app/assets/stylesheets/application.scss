@@ -32,7 +32,7 @@ html,body {
 }
 
 body {
-  background: image-url("bg-img_desaturate") no-repeat center center fixed;
+  background: image-url("bg-img-new_desaturate") no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -67,9 +67,8 @@ ul li{
 }
 
 .popup {
-  // img {
-  //   width: 80px;
-  // }
+
+
 }
 
 .center{
@@ -133,6 +132,10 @@ margin-right: -15px !important;
 float: right!important;
 }
 
+.popup-reported {
+  font-size: 11px;
+}
+
 .space-left {
   margin-left: 10px;
 }
@@ -141,8 +144,14 @@ float: right!important;
   margin-top: 10px;
 }
 
-@media(max-width: 768px){
+.verified {
+  .btn {
+    font-size: 18px;
+  }
+  font-size: 22px;
+}
 
+@media(max-width: 768px){
   .user-info .row {
     margin-right: 3px!important;
   }

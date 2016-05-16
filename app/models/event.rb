@@ -1,8 +1,9 @@
 class Event < ActiveRecord::Base
+
   belongs_to :user
+  acts_as_votable
 
   attr_accessor :address
-
 
   validates :title, :content, :category,
     presence: true
@@ -13,12 +14,10 @@ class Event < ActiveRecord::Base
   validates :content,
       length: {maximum: 140}
 
-#grab longitude and latitude of address/ip address 
+#grab longitude and latitude of address/ip address
     geocoded_by :address,
       :latitude => :latitude,
       :longitude => :longitude
-
-
 
   #avoid unnecessary API requests: only want to geocode an object only when
   #an address is present, or the address has been changed since last save(or it has
