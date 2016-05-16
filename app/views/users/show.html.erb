@@ -1,19 +1,16 @@
-<div class = "col-xs-10 col-xs-offset-1 space-top card" id="user_show">
-  <%= link_to root_path, class: "pull-right" do %>
-    <i class="glyphicon glyphicon-remove"></i>
-  <% end %>
+<div class = "col-xs-10 col-xs-offset-1 space-top card user-info" id="user_show">
 
   <section id="user_itin">
 
     <!-- beginning of profile section -->
     <div class="row">
-      <div class = "col-sm-4 col-sm-offset-1 col-xs-offset-1">
+      <div class = "col-sm-4 col-sm-offset-1 col-xs-offset-1 space-top center">
         <div class = "row">
           <div class = "col-sm-8 col-sm-offset-2 col-xs-offset-1 col-xs-9">
             <% if @user.avatar %>
-              <%= image_tag @user.avatar %>
+              <%= image_tag @user.avatar, class:"avatar" %>
             <% else %>
-              <%= image_tag "userprofile.png" %>
+              <%= image_tag "userprofile.png", class:"avatar" %>
             <% end %>
           </div>
 
@@ -22,42 +19,56 @@
           <h3><%= @user.firstname %> <%= @user.lastname %></h3>
         </div>
         <div class = "row">
-          <h4><em><%= @user.username %></em></h4>
+          <h4><%= @user.username %> -  Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %></h4>
         </div>
         <div class = "row">
-          Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %>
+
         </div>
-        <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary" %>
-        <%= link_to "Delete Profile", user_registration_path, class: "btn btn-danger", method: :delete %>
+        <div class = "row">
+          <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary btn-block space-top" %>
+          <%= link_to "Delete Profile", user_registration_path, class: "btn btn-danger btn-block", method: :delete %>
+        </div>
 
       </div>
       <!-- end of profile section -->
 
       <!-- beginning of posts -->
-      <div class = "col-sm-5 col-sm-offset-1 col-xs-offset-1">
-        <div class="row">
-
+      <div class = "col-sm-5 col-sm-offset-1 col-xs-offset-1 space-top ">
+        <%= link_to root_path, class: "pull-right" do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+        <div class = "row">
           <h4> <%= @user.username %>'s Posts </h4>
           <hr />
-          <div class="row">
-            <%= link_to "Add", new_user_event_path(current_user), class: "btn btn-primary" %>
-          </div>
-
-          <!--********LOOP THROUGH USER POST****************-->
-          <% @events.order("created_at desc").each do |event| %>
-            <div class="row">
-              <h4>Event Title: <%= link_to "#{event.title}", root_path  %></h4>
-              <h5><b>Published: </b><%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</h5>
-              <h5>Event Content: <%= event.content %></h5>
-              <%= link_to "Edit", edit_user_event_path(@user, event), class: "btn btn-primary" %>
-              <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger", method: :delete, data: {confirm: 'Are you sure?'} %>
-            </div>
-          <% end %>
-          <div class="row text-center">
-            <%= will_paginate @events,  renderer: BootstrapPagination::Rails %>
-          </div>
-
         </div>
+        <div class="row">
+          <%= link_to "Report a New Event", new_user_event_path(current_user), class: "btn btn-success btn-block" %>
+          <hr />
+        </div>
+
+        <!--********LOOP THROUGH USER POST****************-->
+        <% @events.order("created_at desc").each do |event| %>
+          <div class="row">
+            <% if event.category == "Heard It" %>
+              <h4><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span><%= link_to "#{event.title}", edit_user_event_path(@user, event), class: "space-left"  %></h4>
+            <% else %>
+              <h4><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><%= link_to "#{event.title}", edit_user_event_path(@user, event), class: "space-left"  %></h4>
+            <% end %>
+            <p><%= event.content %></p>
+            <p><em>Published: <%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</em></p>
+
+            <div class = "row space-left">
+              <%= link_to "Edit", edit_user_event_path(@user, event), class: "btn btn-primary btn-sm" %>
+              <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: 'Are you sure?'} %>
+            </div>
+            <hr />
+          </div>
+        <% end %>
+        <div class="row text-center">
+          <%= will_paginate @events,  renderer: BootstrapPagination::Rails %>
+        </div>
+
+
       </div>
 
     </div>

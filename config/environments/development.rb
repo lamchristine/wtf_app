@@ -39,4 +39,15 @@ Rails.application.configure do
 
   # Raises error for missing translations
   # config.action_view.raise_on_missing_translations = true
+
+  # 
+  #
+  # class ActionDispatch::Request
+  #   def remote_ip
+  #     "71.212.123.5" # ipd home (Denver,CO or Renton,WA)
+  #     # "208.87.35.103" # websiteuk.com -- Nassau, Bahamas
+  #     # "50.78.167.161" # HOL Seattle, WA
+  #   end
+  # end
+
 end
