@@ -29,7 +29,7 @@ class EventsController < ApplicationController
     # test with hardcoded ip address since using local host
     # @event.address = "198.200.32.4" if params[:event][:address].blank?
     @event.address = request.ip if params[:event][:address].blank?
-    @event.save!
+    @event.save
 
     @user.events << (@event)
 
