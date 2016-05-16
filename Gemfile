@@ -27,6 +27,8 @@ gem 'hirb'
 
 gem 'devise'
 
+gem "fog-aws"
+
 # Allows likes and votes
 gem 'acts_as_votable', '~> 0.10.0'
 
