@@ -30,7 +30,11 @@ gem 'devise'
 # Google Maps gem
 gem 'gmaps4rails'
 
+
+
 gem 'underscore-rails'
+
+gem 'geocoder'
 
 # Helper to convert time to relative time
 gem 'time_ago_in_words', '~> 0.1.1'

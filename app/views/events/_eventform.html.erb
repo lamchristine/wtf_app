@@ -1,3 +1,12 @@
+User current location or enter alternate address below
+
+<div class="row space-top">
+  <%= f.label :address, class:"control-label" %>
+</div>
+<div class="row">
+  <%= f.text_field :address, class: "form-control", placeholder: "Address", autofocus: true %>
+</div>
+
 <div class="row space-top">
   <%= f.label :title, class:"control-label" %>
 </div>
@@ -30,8 +39,8 @@
 
 
 <div class="row space-top">
-  <%= hidden_field_tag("latitude", 0, class:"lat") %>
-  <%= hidden_field_tag("longitude", 0, class:"long") %>
+  <!-- <%#= hidden_field_tag("latitude", 0, class:"lat") %>
+  <%#= hidden_field_tag("longitude", 0, class:"long") %> -->
 
   <%= f.submit "Submit", class: "btn btn-primary" %>
   <%= link_to "Cancel", :back, class: "btn btn-default" %>
