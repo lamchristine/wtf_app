@@ -5,57 +5,81 @@
         <h2>Edit Profile</h2>
       </div>
     </div>
-    <%= link_to "close", root_path, class: "btn btn-secondary" %>
     <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
       <%= devise_error_messages! %>
 
-      <div class="field row space-top">
-        <div class = "col-sm-6">
+      <div class="row">
+        <div class = "col-sm-6 space-top">
           <%= f.label "First Name" %><br />
           <%= f.text_field :firstname, autocomplete: "off", class: "form-control" %>
         </div>
-        <div class = "col-sm-6">
+        <div class = "col-sm-6 space-top">
           <%= f.label "Last Name" %><br />
           <%= f.text_field :lastname, autocomplete: "off", class: "form-control" %>
         </div>
       </div>
+      <div class = "row">
+        <hr />
+      </div>
 
-      <div class="field row space-top">
+      <div class="row">
         <div class = "col-sm-6">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, class: "form-control" %>
         </div>
-        <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-          <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-        <% end %>
-        <div class = "col-sm-6">
-          <%= f.label :password, placeholder: "(leave blank if you don't want to change it)" %> <i>(leave blank if you don't want to change it)</i><br />
-          <%= f.password_field :password, autocomplete: "off", class: "form-control" %>
-        </div>
+
       </div>
 
-      <div class="field row space-top">
-        <div class = "col-sm-6">
-          <%= f.label :password_confirmation %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control" %>
+      <div class = "row">
+        <hr />
+      </div>
+      <div class="row space-top">
+        <div class = "col-sm-12">
+          <button class="btn btn-primary btn-block" type="button" data-toggle="collapse" data-target="#collapse" aria-expanded="false" aria-controls="collapseExample">
+            Update Password
+          </button>
+          <div class="collapse" id="collapse">
+            <div class="well">
+
+              <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+                <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
+              <% end %>
+
+                <%= f.label :current_password %><br />
+                <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Required to confirm your changes" %><br />
+
+
+                <%= f.label :password %><br />
+                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "New Password" %><br />
+
+                <%= f.label :password_confirmation %><br />
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm New Password" %>
+
+
+
+            </div>
+          </div>
         </div>
-        <div class = "col-sm-6">
-          <%= f.label :current_password %> <i>(we need your current password to confirm your changes)</i><br />
-          <%= f.password_field :current_password, autocomplete: "off", class: "form-control" %>
-        </div>
+
+
       </div>
 
       <div class="actions row space-top">
         <div class = "col-sm-12">
-          <%= f.submit "Update", class:"btn btn-primary btn-block" %>
+          <%= f.submit "Save", class:"btn btn-success btn-block" %>
         </div>
       </div>
       <div class = "row space-top">
         <div class = "col-sm-12">
-          <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-block btn-danger" %>
-          <%= link_to "Back", :back %>
+          <%= button_to "Cancel", user_path(current_user), class:"btn btn-block btn-default" %>
         </div>
       </div>
+      <div class = "row space-top">
+        <div class = "col-sm-12">
+          <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-block btn-danger" %>
+        </div>
+      </div>
+
     <% end %>
 
   </div>
