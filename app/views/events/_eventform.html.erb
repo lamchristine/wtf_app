@@ -61,5 +61,5 @@ User current location or enter alternate address below
   <%#= hidden_field_tag("longitude", 0, class:"long") %> -->
 
   <%= f.submit "Submit", class: "btn btn-success btn-block" %>
-  <%= link_to "Cancel", root_path, class: "btn btn-default btn-block space-top" %>
+  <%= link_to "Cancel", root_path, method: :get, class: "btn btn-default btn-block space-top" %>
 </div>

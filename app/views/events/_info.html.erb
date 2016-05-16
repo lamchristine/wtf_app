@@ -15,7 +15,7 @@
   <div class = "col-xs-9">
     <h4>
       <% if user == current_user %>
-        <%= link_to title, edit_user_event_path(current_user, event) %>
+        <%= link_to title, user_path(current_user, event) %>
       <% else %>
         <%= title %>
       <% end %>
@@ -27,6 +27,11 @@
 
 
     <p><em><%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</em></p>
+
+    <% if user == current_user %>
+      <%= link_to "Edit", edit_user_event_path(user, event), class: "btn btn-primary btn-xs" %>
+      <%= link_to "Delete", root_path, class: "btn btn-danger btn-xs", method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
 
   </div>
 </div>

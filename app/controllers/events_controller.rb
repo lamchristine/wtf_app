@@ -15,7 +15,6 @@ class EventsController < ApplicationController
   def new
      @user = User.find_by(id: params[:user_id])
      @event = Event.new
-    #  @longitude = (@event[:user_id])
      if params[:category]
        @event.category = params[:category]
      end
@@ -25,19 +24,11 @@ class EventsController < ApplicationController
   def create
     @user = current_user
     @event = Event.new(event_params)
-    @event.longitude = request.location.longitude
-    @event.latitude = request.location.latitude
-    # @event.ip_address = "198.200.32.4"
 
-    # lat = params[:latitude].to_s
-    # long = params[:longitude].to_s
-    #
-    # puts "latitude: " + lat.to_s
-    # puts "lat params: " + params[:latitude].to_s
-
-    # @event.latitude = lat
-    # @event.longitude = long
-
+    # checks to see if address is blank, if it us then geocode by ip_address
+    # test with hardcoded ip address since using local host
+    # @event.address = "198.200.32.4" if params[:event][:address].blank?
+    @event.address = request.ip if params[:event][:address].blank?
     @event.save!
 
     @user.events << (@event)
@@ -71,8 +62,6 @@ class EventsController < ApplicationController
     event.destroy
     redirect_to user_path(current_user)
   end
-
-
 
   private
   def event_params
