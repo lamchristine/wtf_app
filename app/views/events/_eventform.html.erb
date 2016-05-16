@@ -24,17 +24,35 @@ User current location or enter alternate address below
 <div class="row space-top">
   <%= f.label :category, class:"control-label" %>
 </div>
-<div class="row">
-  <div class = "col-xs-offset-1 space-top">
-    <div class = "row">
-      <%= f.radio_button :category, 'Heard It', value:"Heard It" %>
-      <%= f.label :category, 'Heard It'%>
+<div class="row space-top">
+
+  <% if params[:category] == "Saw It" || @event.category == "Saw It" %>
+
+    <div class="btn-group" data-toggle="buttons">
+      <%= f.label :category, 'Heard It', class: "btn btn-primary" do %>
+        <%= f.radio_button :category, 'Heard It' %>
+        <span class="glyphicon glyphicon-headphones"></span> Heard It
+      <% end %>
+      <%= f.label :category, 'Saw It', class: "btn btn-primary active" do %>
+        <%= f.radio_button :category, 'Saw It' %>
+        <span class="glyphicon glyphicon-eye-open"></span> Saw It
+      <% end %>
     </div>
-    <div class = "row">
-      <%= f.radio_button :category, 'Saw It', value:"Heard It" %>
-      <%= f.label :category, 'Saw It'%>
+
+  <% else %>
+
+    <div class="btn-group" data-toggle="buttons">
+      <%= f.label :category, 'Heard It', class: "btn btn-primary active" do %>
+        <%= f.radio_button :category, 'Heard It' %>
+        <span class="glyphicon glyphicon-headphones"></span> Heard It
+      <% end %>
+      <%= f.label :category, 'Saw It', class: "btn btn-primary" do %>
+        <%= f.radio_button :category, 'Saw It' %>
+        <span class="glyphicon glyphicon-eye-open"></span> Saw It
+      <% end %>
     </div>
-  </div>
+  <% end %>
+
 </div>
 
 
@@ -42,6 +60,6 @@ User current location or enter alternate address below
   <!-- <%#= hidden_field_tag("latitude", 0, class:"lat") %>
   <%#= hidden_field_tag("longitude", 0, class:"long") %> -->
 
-  <%= f.submit "Submit", class: "btn btn-primary" %>
-  <%= link_to "Cancel", root_path, method: :get, class: "btn btn-default" %>
+  <%= f.submit "Submit", class: "btn btn-success btn-block" %>
+  <%= link_to "Cancel", root_path, method: :get, class: "btn btn-default btn-block space-top" %>
 </div>
