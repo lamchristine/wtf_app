@@ -76,6 +76,18 @@ class EventsController < ApplicationController
     redirect_to user_path(current_user)
   end
 
+  def upvote
+    @event = Event.find_by(id: params[:event_id])
+    @event.liked_by current_user
+    redirect_to :back
+  end
+
+  def downvote
+    @event = Event.find(params[:id])
+    @event.downvote_by current_user
+    redirect_to :back
+  end
+
   private
   def event_params
     params.require(:event).permit(:title, :content, :category, :longitude, :latitude, :address)

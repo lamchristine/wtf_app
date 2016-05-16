@@ -27,6 +27,9 @@ gem 'hirb'
 
 gem 'devise'
 
+# Allows likes and votes
+gem 'acts_as_votable', '~> 0.10.0'
+
 # Google Maps gem
 gem 'gmaps4rails'
 
