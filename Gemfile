@@ -29,6 +29,8 @@ gem 'devise'
 
 gem "fog-aws"
 
+gem 'figaro'
+
 # Allows likes and votes
 gem 'acts_as_votable', '~> 0.10.0'
 
