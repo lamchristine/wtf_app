@@ -42,17 +42,22 @@
           <hr />
         </div>
         <div class="row">
-          <%= link_to "Create a New Post", new_user_event_path(current_user), class: "btn btn-success btn-block" %>
+          <%= link_to "Report a New Event", new_user_event_path(current_user), class: "btn btn-success btn-block" %>
           <hr />
         </div>
 
         <!--********LOOP THROUGH USER POST****************-->
         <% @events.order("created_at desc").each do |event| %>
           <div class="row">
-            <h4>Event Title: <%= link_to "#{event.title}", root_path  %></h4>
-            <p><em>Published: <%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</em></p>
+            <% if event.category == "Heard It" %>
+              <h4><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span><%= link_to "#{event.title}", edit_user_event_path(@user, event), class: "space-left"  %></h4>
+            <% else %>
+              <h4><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><%= link_to "#{event.title}", edit_user_event_path(@user, event), class: "space-left"  %></h4>
+            <% end %>
             <p><%= event.content %></p>
-            <div class = "row center">
+            <p><em>Published: <%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</em></p>
+
+            <div class = "row space-left">
               <%= link_to "Edit", edit_user_event_path(@user, event), class: "btn btn-primary btn-sm" %>
               <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: 'Are you sure?'} %>
             </div>
