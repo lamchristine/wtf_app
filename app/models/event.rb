@@ -15,13 +15,11 @@ class Event < ActiveRecord::Base
   validates :content,
       length: {maximum: 140}
 
-  if :address.present?
-    geocoded_by :address
-  else
-    geocoded_by :ip_address,
-    :latitude => :latitude,
-    :longitude => :longitude
-  end
+#grab longitude and latitude of address/ip address 
+    geocoded_by :address,
+      :latitude => :latitude,
+      :longitude => :longitude
+
 
   #avoid unnecessary API requests: only want to geocode an object only when
   #an address is present, or the address has been changed since last save(or it has
