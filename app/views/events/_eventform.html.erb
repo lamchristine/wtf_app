@@ -1,24 +1,41 @@
-User current location or enter alternate address below
+<div class ="row">
+  <div class="btn-group" data-toggle="buttons">
+    <label class="btn btn-primary active" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
+      <input type="radio" name="options" id="current_location" autocomplete="off" checked> Use My Current Location
+    </label>
+    <label class="btn btn-primary" role="button" data-toggle="collapse" href="#collapse" aria-expanded="false" aria-controls="collapse">
+      <input type="radio" name="options" id="enter_address" autocomplete="off"> Enter an Address
+    </label>
 
-<div class="row space-top">
-  <%= f.label :address, class:"control-label" %>
+  </div>
 </div>
-<div class="row">
-  <%= f.text_field :address, class: "form-control", placeholder: "Address", autofocus: true %>
+<div class = "row">
+  <div class="collapse" id="collapse">
+    <div class="well">
+      <div class="row">
+        <%= f.label :address, class:"control-label" %>
+      </div>
+      <div class="row">
+        <%= f.text_field :address, class: "form-control", placeholder: "Address", autofocus: true %>
+      </div>
+    </div>
+  </div>
 </div>
+
+
 
 <div class="row space-top">
   <%= f.label :title, class:"control-label" %>
 </div>
 <div class="row">
-  <%= f.text_field :title, class: "form-control", placeholder: "Title", autofocus: true %>
+  <%= f.text_field :title, class: "form-control", placeholder: "Title", autofocus: true, maxlength: "50", required: "required" %>
 </div>
 
 <div class="row space-top">
   <%= f.label :content, class:"control-label" %>
 </div>
 <div class="row">
-  <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "What happened?" %>
+  <%= f.text_area :content, rows: 5, class: "form-control", placeholder: "What happened?", maxlength: "140", required: "required" %>
 </div>
 
 <div class="row space-top">
@@ -39,7 +56,7 @@ User current location or enter alternate address below
       <% end %>
     </div>
 
-  <% else %>
+  <% elsif params[:category] == "Heard It" || @event.category == "Heard It" %>
 
     <div class="btn-group" data-toggle="buttons">
       <%= f.label :category, 'Heard It', class: "btn btn-primary active" do %>
@@ -51,6 +68,20 @@ User current location or enter alternate address below
         <span class="glyphicon glyphicon-eye-open"></span> Saw It
       <% end %>
     </div>
+
+  <% else %>
+
+    <div class="btn-group" data-toggle="buttons", required: "required">
+      <%= f.label :category, 'Heard It', required: "required", class: "btn btn-primary" do %>
+        <%= f.radio_button :category, 'Heard It' %>
+        <span class="glyphicon glyphicon-headphones"></span> Heard It
+      <% end %>
+      <%= f.label :category, 'Saw It', required: "required", class: "btn btn-primary" do %>
+        <%= f.radio_button :category, 'Saw It' %>
+        <span class="glyphicon glyphicon-eye-open"></span> Saw It
+      <% end %>
+    </div>
+
   <% end %>
 
 </div>
