@@ -26,7 +26,7 @@ User current location or enter alternate address below
 </div>
 <div class="row space-top">
 
-  <% if params[:category] == "Saw It" %>
+  <% if params[:category] == "Saw It" || @event.category == "Saw It" %>
 
     <div class="btn-group" data-toggle="buttons">
       <%= f.label :category, 'Heard It', class: "btn btn-primary" do %>
