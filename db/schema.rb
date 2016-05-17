@@ -15,7 +15,6 @@ ActiveRecord::Schema.define(version: 20160516185129) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
->>>>>>> development
 
   create_table "events", force: :cascade do |t|
     t.string   "category"
@@ -48,9 +47,6 @@ ActiveRecord::Schema.define(version: 20160516185129) do
     t.datetime "last_sign_in_at"
     t.string   "current_sign_in_ip"
     t.string   "last_sign_in_ip"
-    t.string   "confirmation_token"
-    t.datetime "confirmed_at"
-    t.datetime "confirmation_sent_at"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
@@ -71,4 +67,5 @@ ActiveRecord::Schema.define(version: 20160516185129) do
   add_index "votes", ["votable_id", "votable_type", "vote_scope"], name: "index_votes_on_votable_id_and_votable_type_and_vote_scope", using: :btree
   add_index "votes", ["voter_id", "voter_type", "vote_scope"], name: "index_votes_on_voter_id_and_voter_type_and_vote_scope", using: :btree
 
+  add_foreign_key "events", "users"
 end

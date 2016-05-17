@@ -65,7 +65,7 @@ Rails.application.configure do
   config.action_mailer.raise_delivery_errors = false
   config.action_mailer.default_url_options = { host: 'seen-it-heard-it.herokuapp.com' }
 
-  Rails.application.routes.default_url_options[:host] = 'seen-it-heard-it.herokuapp.com'
+  # Rails.application.routes.default_url_options[:host] = 'seen-it-heard-it.herokuapp.com'
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
@@ -84,7 +84,7 @@ Rails.application.configure do
 
   config.action_mailer.perform_deliveries = true
 
-  # config.action_mailer.default :charset => "utf-8"
+  config.action_mailer.default :charset => "utf-8"
 
   config.action_mailer.smtp_settings = {
     address: "smtp.gmail.com",
