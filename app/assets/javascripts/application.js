@@ -46,32 +46,19 @@ $(window).resize(function(){
 });
 
 
-
-
 function geoFindMe() {
-  //  var output = document.getElementById("out");
 
   function success(position) {
     var latitude  = position.coords.latitude;
     var longitude = position.coords.longitude;
+    console.log(latitude);
+    console.log(longitude);
     $('#coordinates').val(latitude + ',' + longitude);
-
-    // return latitude.toString() + ',' + longitude.toString();
-
-    // var img = new Image();
-    //   img.src = "https://maps.googleapis.com/maps/api/staticmap?center=" + latitude + "," + longitude + "&zoom=13&size=300x300&sensor=false";
-    //   output.appendChild(img);
   }
 
   function error() {
     alert("Unable to retrieve your location");
   }
 
-  // navigator.geolocation.getCurrentPosition(success, error);
-
   navigator.geolocation.getCurrentPosition(success, error);
-    // console.log(position.coords.latitude);
-    // return position.coords.latitude + ',' + position.coords.longitude;
-  // });
-  // return '37.756555,-122.483828';
 }
