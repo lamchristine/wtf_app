@@ -94,14 +94,19 @@
       id: 'map'
     }
   }, function(){
+      var eventhash = <%=raw @hash.to_json %>;
+      var lat = eventhash[eventhash.length-1].lat;
+      var lng = eventhash[eventhash.length-1].lng;
+      // console.log("lat:" + lat);
+
       markers = handler.addMarkers(<%=raw @hash.to_json %>);
       handler.bounds.extendWith(markers);
       //to center the map AND adjust zoom to see ALL markers
       handler.fitMapToBounds();
       //to center on a marker
-      // handler.map.centerOn(markers[0])
+      handler.getMap().panTo({lat: lat, lng: lng})
       //to set the map zoom
-      // handler.getMap().setZoom(21);
+      handler.getMap().setZoom(15);
     }
   );
 

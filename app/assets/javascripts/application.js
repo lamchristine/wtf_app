@@ -26,15 +26,21 @@ function setMapHeight(){
 
 $(document).ready(function(){
   setMapHeight();
-
+  // googleMapBuild();
+  // geoFindMe();
 });
 
 $(document).on("page:load", function(){
   setMapHeight();
-
+  // geoFindMe();
 });
 
 // resets Google Map height on change of screen size
 $(window).resize(function(){
   setMapHeight();
+  // geoFindMe();
 });
+
+// function googleMapBuild() {
+//   handler.
+// }
