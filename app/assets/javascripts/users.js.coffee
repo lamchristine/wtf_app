@@ -22,7 +22,6 @@ $.rails.showConfirmDialog = (link) ->
                <a data-dismiss="modal" class="btn btn-primary confirm">Okay</a>
              </div>
            </div>
-
          </div>
          """
   $(html).modal()
