@@ -19,7 +19,7 @@
 
       <!-- Collect the nav links, forms, and other content for toggling -->
       <div class="collapse navbar-collapse">
-        <%= link_to "WTF?!", root_path, method: :get, :class => "navbar-brand" %>
+        <%= link_to "WTF?!", root_path, method: :get, :class => "navbar-brand", id: "brand-logo" %>
         <% if user_signed_in? %>
           <ul class="nav navbar-nav navbar-left">
             <li>
