@@ -53,7 +53,15 @@
       <div class="field row">
         <div class = "col-sm-12">
           <%= f.label :avatar %><br />
-          <%= f.file_field :avatar %>
+
+          <!-- Restyles file upload button to look consistent -->
+          <div class="input-group">
+            <span class="input-group-btn">
+              <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
+              <%= f.file_field :avatar, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+            </span>
+            <span class="form-control flat-input"></span>
+          </div>
         </div>
 
       </div>
