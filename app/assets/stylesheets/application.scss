@@ -194,6 +194,10 @@ $paragraph-font: 'Open Sans', sans-serif;
     font-family: $paragraph-font;
   }
 
+  .flat-input:focus {
+    box-shadow: 0 0 5px $blue!important;
+  }
+
   .flat-input {
     border: 0px;
     border-radius: 0px!important;
