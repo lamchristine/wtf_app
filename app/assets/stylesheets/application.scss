@@ -125,6 +125,11 @@ $red: #e02e3e;
     @include buttons-active ($red);
   }
 
+  button:focus {
+    outline:0 !important;
+    text-decoration: none;
+  }
+
   // .pill {
   //   border-radius: 0px;
   // }
