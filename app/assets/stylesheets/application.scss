@@ -18,6 +18,13 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+// // Layout helper (uncomment):
+// div {
+//   border: 1px dotted grey;
+// }
+
+
+// Color Palette
 $card-bg: #ffffff;
 $blue: #7dcdcd;
 $lightblue: #c0e8e8;
@@ -26,45 +33,10 @@ $grey: #e9e5dc;
 $black:  #353434;
 $lightgreen: #afffe4;
 $green: #47cd91;
+$red: #e02e3e;
 
 
-// div {
-//   border: 1px dotted grey;
-// }
-
-html,body {
-  width:100%;
-  height:100%;
-  margin:0;
-  padding:0;
-}
-
-body {
-  background: image-url("bg-img-new_desaturate") no-repeat center center fixed;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-img {
-  width: 100%;
-}
-
-#error_explanation h2{
-  font-size: 16px;
-  display: inline;
-  color: #B0171F !important;
-  // text-shadow: .5px .5px .5px black;
-}
-
-#error_explanation li{
-  font-size: 16px;
-  display: inline;
-  color: #B0171F !important;
-  // text-shadow: .5px .5px .5px black;
-}
-
+// Mixins
 @mixin buttons ($color) {
   color: #fff;
   background-color: $color;
@@ -72,8 +44,8 @@ img {
 }
 @mixin buttons-hover ($color) {
   color: #fff!important;
-  background-color: darken($color, 15)!important;
-  border-color: darken($color, 20)!important;
+  background-color: darken($color, 12)!important;
+  border-color: darken($color, 17)!important;
 }
 @mixin buttons-active ($color) {
   color: #fff!important;
@@ -81,143 +53,219 @@ img {
   border-color: darken($color, 13)!important;
 }
 
-.btn-success {
-  @include buttons ($green);
-}
-.btn-success:hover {
-  @include buttons-hover ($green);
-}
 
-
-.btn-primary  {
-  @include buttons ($darkblue);
-}
-.btn-primary:hover {
-  @include buttons-hover ($darkblue);
-}
-.active {
-  @include buttons-active ($darkblue);
-}
-
-a {
-  color: $darkblue;
-}
-a:hover{
-  color: darken($darkblue, 20);
-  text-decoration: none;
-}
-
-
-.bg-success {
-  background-color: $lightgreen;
-}
-
-.navbar-btn {
-  height: 34px;
-  padding: 6px 12px 6px 12px!important;
-}
-
-ul li{
-  list-style: none;
-}
-
-.popup {
-
-
-}
-
-.center{
-  text-align: center;
-}
-
-#map {
-    display: block;
-    position:absolute;
-    height: 800px;
-    // height: 100%;
-    width: 100%;
-    bottom:0;
-    top:0;
-    left:0;
-    right:0;
-    // margin-top:50px; /* adjust top margin to your header height */
-}
-
-.avatar {
-  border: 1px solid darken($card-bg, 5);
-}
-
-.bg-success, .bg-danger {
-  text-align: center;
-  padding: 10px 20px 20px 10px;
-  margin: 0px;
-  list-style: none;
-}
-
-.card {
-  background-color: $card-bg;
-  border: 1px solid darken($card-bg, 5);
-  box-shadow: 3px 3px 5px grey;
-  margin-top: 50px !important;
-  padding: 30px 0px 40px 0px;
-  margin-bottom: 50px;
-}
-
-.field {
-  margin-top: 20px;
-}
-
-.navbar {
-  margin-bottom: 0px!important;
-  border-radius: 0px;
-  background-color: $card-bg!important;
-  border-color: darken($card-bg, 20)
-
-}
-
-.navbar-collapse.collapse {
-  display: block!important;
-  a {
-    color: $black!important;
+// Devise Errors
+  #error_explanation h2{
+    font-size: 16px;
+    display: inline;
+    color: #B0171F !important;
+    // text-shadow: .5px .5px .5px black;
   }
-  a:hover {
-    color: darken($blue, 30)!important;
+
+  #error_explanation li{
+    font-size: 16px;
+    display: inline;
+    color: #B0171F !important;
+    // text-shadow: .5px .5px .5px black;
   }
-}
 
-.navbar-nav>li, .navbar-nav {
-  float: left !important;
-}
 
-.navbar-nav.navbar-right:last-child {
-  margin-right: -15px !important;
-}
+// Helpers
+  .center {
+    text-align: center;
+  }
+  .space-left {
+    margin-left: 10px;
+  }
+  .space-top {
+    margin-top: 10px;
+  }
 
-.navbar-right {
-  float: right!important;
-}
 
-.popup-reported {
-  font-size: 11px;
-}
-
-.space-left {
-  margin-left: 10px;
-}
-
-.space-top {
-  margin-top: 10px;
-}
-
-.verified {
+// Boot strap buttons
   .btn {
-    font-size: 18px;
+    border-radius: 0px;
   }
-  font-size: 22px;
-}
+  .likebtn {
+    border-radius: 10px;
+  }
+  .navbar-btn {
+    border-radius: 15px;
+    height: 34px;
+    padding: 6px 12px 6px 12px!important;
+  }
 
-@media(max-width: 768px){
-  .user-info .row {
-    margin-right: 3px!important;
+  .btn-success {
+    @include buttons ($green);
   }
-}
+  .btn-success:hover {
+    @include buttons-hover ($green);
+  }
+  label.btn-btn-success.active {
+    @include buttons-active ($green);
+  }
+
+  .btn-primary  {
+    @include buttons ($darkblue);
+  }
+  .btn-primary:hover {
+    @include buttons-hover ($darkblue);
+  }
+  label.btn.btn-primary.active {
+    @include buttons-active ($darkblue);
+  }
+
+  .btn-danger {
+    @include buttons ($red);
+  }
+  .btn-danger:hover {
+    @include buttons-hover ($red);
+  }
+  label.btn.btn-default.active {
+    @include buttons-active ($red);
+  }
+
+  // .pill {
+  //   border-radius: 0px;
+  // }
+
+  // .red {
+  //   color: $red!important;
+  //   border-color: $red!important;
+  // }
+  // .blue {
+  //   color: $darkblue!important;
+  //   border-color: $darkblue!important;
+  // }
+
+// Bootstrap BGs
+  .bg-success {
+    background-color: $lightgreen;
+  }
+
+  .bg-success, .bg-danger {
+    text-align: center;
+    padding: 10px 20px 20px 10px;
+    margin: 0px;
+    list-style: none;
+  }
+
+
+// Styles
+  html,body {
+    width:100%;
+    height:100%;
+    margin:0;
+    padding:0;
+  }
+
+  body {
+    background: image-url("bg-img-new_desaturate") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  a {
+    color: $darkblue;
+  }
+  a:hover{
+    color: darken($darkblue, 20);
+    text-decoration: none;
+  }
+
+  img {
+    width: 100%;
+  }
+
+  ul li{
+    list-style: none;
+  }
+
+  #map {
+      display: block;
+      position:absolute;
+      height: 800px;
+      // height: 100%;
+      width: 100%;
+      bottom:0;
+      top:0;
+      left:0;
+      right:0;
+      // margin-top:50px; /* adjust top margin to your header height */
+  }
+
+  .avatar {
+    border: 1px solid darken($card-bg, 5);
+  }
+
+  .card {
+    background-color: $card-bg;
+    border: 1px solid darken($card-bg, 5);
+    box-shadow: 3px 3px 5px grey;
+    margin-top: 50px !important;
+    padding: 30px 0px 40px 0px;
+    margin-bottom: 50px;
+  }
+
+  .field {
+    margin-top: 20px;
+  }
+
+  .popup-reported {
+    font-size: 11px;
+  }
+
+  .verified {
+    .btn {
+      font-size: 18px;
+    }
+    font-size: 22px;
+  }
+
+
+// Navbar Styles
+  .navbar {
+    margin-bottom: 0px!important;
+    border-radius: 0px;
+    background-color: $card-bg!important;
+    border-color: darken($card-bg, 20)
+
+  }
+
+  .navbar-collapse.collapse {
+    display: block!important;
+    a {
+      color: $black!important;
+    }
+    a:hover {
+      color: darken($blue, 30)!important;
+    }
+  }
+
+  .navbar-nav>li, .navbar-nav {
+    float: left !important;
+  }
+
+  .navbar-nav.navbar-right:last-child {
+    margin-right: -15px !important;
+  }
+
+  .navbar-right {
+    float: right!important;
+  }
+
+  #brand-logo {
+    color: $blue!important;
+    font-size: 25px;
+    text-shadow: 2px 1px 4px lighten(grey, 35);
+  }
+
+
+// Mobile view
+  @media(max-width: 768px){
+    .user-info .row {
+      margin-right: 3px!important;
+    }
+  }
