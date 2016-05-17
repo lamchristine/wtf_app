@@ -15,6 +15,9 @@
 /log/*
 !/log/.keep
 /tmp
-/config/application.yml
 Procfile
 .env
+/.gitignore
+
+# Ignore application configuration
+/config/application.yml

@@ -1,0 +1,9 @@
+console.log("hit downvote.js.erb");
+
+
+$('.dislike').bind('ajax:success', function() {
+  $('.count').text('<%=escape_javascript @event.get_upvotes.size.to_s %>');
+});
+
+$('.count').text('<%=escape_javascript @event.get_upvotes.size.to_s %>');
+$('.likebtn').removeClass('active');
