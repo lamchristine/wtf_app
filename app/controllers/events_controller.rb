@@ -1,7 +1,9 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.where(created_at: 1.hours.ago..Time.now)
+    # Filters out events that were created longer than 365 days ago;
+    # can be changed to e.g. 1 hour ago by changing 365.days.ago to 1.hours.ago
+    @events = Event.where(created_at: 365.days.ago..Time.now)
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
