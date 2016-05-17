@@ -184,6 +184,11 @@ $red: #e02e3e;
     width: 100%;
   }
 
+  .flat-input:focus {
+    box-shadow: 0 0 5px $blue!important;
+  }
+
+
   .flat-input {
     border: 0px;
     border-radius: 0px!important;
