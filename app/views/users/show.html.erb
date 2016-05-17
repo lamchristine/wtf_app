@@ -21,9 +21,7 @@
         <div class = "row">
           <h4><%= @user.username %> -  Joined: <%= @user.created_at.strftime("%-m-%-d-%Y") %></h4>
         </div>
-        <div class = "row">
 
-        </div>
         <div class = "row">
           <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary btn-block space-top" %>
           <%= link_to "Delete Profile", user_registration_path, class: "btn btn-danger btn-block", method: :delete, data: {confirm: ' '} %>
@@ -53,12 +51,12 @@
         <% @events.order("created_at desc").each do |event| %>
           <div class="row">
             <% if event.category == "Heard It" %>
-              <h4><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span><%= link_to "#{event.title}", edit_user_event_path(@user, event), class: "space-left"  %></h4>
+              <h4><span class="glyphicon glyphicon-headphones" aria-hidden="true"></span><strong><%= link_to "#{event.title}", edit_user_event_path(@user, event), class: "space-left opensans"  %></strong></h4>
             <% else %>
-              <h4><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><%= link_to "#{event.title}", edit_user_event_path(@user, event), class: "space-left"  %></h4>
+              <h4><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span><strong><%= link_to "#{event.title}", edit_user_event_path(@user, event), class: "space-left opensans"  %></strong></h4>
             <% end %>
             <p><%= event.content %></p>
-            <p><em>Published: <%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</em></p>
+            <p><small><em>Published: <%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</em></small></p>
 
             <div class = "row space-left">
               <%= link_to "Edit", edit_user_event_path(@user, event), class: "btn btn-primary btn-sm" %>
