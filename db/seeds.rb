@@ -18,7 +18,7 @@ thomas = User.create(
   password: "testthomas")
 
 dan = User.create(
-  avatar: "/app/assets/images/dan-profile.jpeg",
+  avatar: "dan-profile.jpeg",
   email: "dan@test.com",
   firstname: "Dan",
   lastname: "Smith",
@@ -26,7 +26,7 @@ dan = User.create(
   password: "testdan")
 
 melanie = User.create(
-  avatar: "/app/assets/images/melanie-profile.jpeg",
+  avatar: "melanie-profile.jpg",
   email: "melanie@test.com",
   firstname: "Melanie",
   lastname: "Sullivan",
@@ -34,7 +34,7 @@ melanie = User.create(
   password: "testmelanie")
 
 kathleen = User.create(
-  avatar: "/app/assets/images/kathleen-profile.jpeg",
+  avatar: "kathleen-profile.jpeg",
   email: "kathleen@test.com",
   firstname: "Kathleen",
   lastname: "Roberts",
