@@ -179,6 +179,17 @@ $red: #e02e3e;
     width: 100%;
   }
 
+  .flat-input {
+    border: 0px;
+    border-radius: 0px!important;
+    background-color: darken(#fff, 4);
+    box-shadow: 0 0 0;
+  }
+
+  .flat-input-dark {
+    background-color: darken(#fff, 9)!important;
+  }
+
   ul li{
     list-style: none;
   }

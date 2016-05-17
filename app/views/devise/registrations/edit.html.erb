@@ -13,13 +13,12 @@
 
       <div class="row">
         <div class = "col-sm-6 space-top">
-          <%= f.file_field :avatar %>
           <%= f.label "First Name" %><br />
-          <%= f.text_field :firstname, autocomplete: "off", class: "form-control", required: "required" %>
+          <%= f.text_field :firstname, autocomplete: "off", class: "form-control flat-input", required: "required" %>
         </div>
         <div class = "col-sm-6 space-top">
           <%= f.label "Last Name" %><br />
-          <%= f.text_field :lastname, autocomplete: "off", class: "form-control", required: "required" %>
+          <%= f.text_field :lastname, autocomplete: "off", class: "form-control flat-input", required: "required" %>
         </div>
       </div>
       <div class = "row">
@@ -29,9 +28,18 @@
       <div class="row">
         <div class = "col-sm-6">
           <%= f.label :email %><br />
-          <%= f.email_field :email, autofocus: true, class: "form-control", required: "required" %>
+          <%= f.email_field :email, autofocus: true, class: "form-control flat-input", required: "required" %>
         </div>
 
+      </div>
+      <div class = "row">
+        <hr />
+      </div>
+      <div class="row">
+        <div class = "col-sm-6">
+          <%= f.label :avatar %><br />
+          <%= f.file_field :avatar %>
+        </div>
       </div>
 
       <div class = "row">
@@ -50,14 +58,14 @@
               <% end %>
 
                 <%= f.label :current_password %><br />
-                <%= f.password_field :current_password, autocomplete: "off", class: "form-control", placeholder: "Required to confirm your changes" %><br />
+                <%= f.password_field :current_password, autocomplete: "off", class: "form-control flat-input flat-input-dark", placeholder: "Required to confirm your changes" %><br />
 
 
                 <%= f.label :password %><br />
-                <%= f.password_field :password, autocomplete: "off", class: "form-control", placeholder: "New Password" %><br />
+                <%= f.password_field :password, autocomplete: "off", class: "form-control flat-input flat-input-dark", placeholder: "New Password" %><br />
 
                 <%= f.label :password_confirmation %><br />
-                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm New Password" %>
+                <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control flat-input flat-input-dark", placeholder: "Confirm New Password" %>
             </div>
           </div>
           <hr />
@@ -75,6 +83,9 @@
         <div class = "col-sm-12">
           <%= link_to "Cancel", user_path(@user), method: :get, class:"btn btn-block btn-default" %>
         </div>
+      </div>
+      <div class = "row">
+        <hr />
       </div>
       <div class = "row space-top">
         <div class = "col-sm-12">
