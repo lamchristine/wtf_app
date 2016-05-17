@@ -1,7 +1,7 @@
 <div class = "col-xs-12 popup">
   <div class = "col-xs-3">
     <div class="row">
-      <%= image_tag avatar, class: "avatar" %>
+      <%= image_tag avatar, :class => "avatar" %>
     </div>
     <div class="row space-top popup-reported">
       <% if category == "Saw It" %>
@@ -30,7 +30,7 @@
 
     <% if user == current_user %>
       <%= link_to "Edit", edit_user_event_path(user, event), class: "btn btn-primary btn-xs" %>
-      <%= link_to "Delete", user_event_path(user, event), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%= link_to "Delete", user_event_path(user, event), class: "btn btn-danger btn-xs", method: :delete, data: {confirm: ' '} %>
     <% end %>
 
 
@@ -38,12 +38,14 @@
 
           <% if current_user %>
             <% if current_user.voted_up_on? event %>
-              <%= link_to user_event_dislike_path(event.user, event), method: "put", class: "btn btn-default btn-sm active" do %>
-                <span class = "glyphicon glyphicon-ok"></span> <span class="badge"><%= event.get_upvotes.size %></span>
+              <%= button_to user_event_dislike_path(event.user, event), method: "put",
+                class: "btn btn-default btn-sm active likebtn", remote: true do %>
+                <span class = "glyphicon glyphicon-ok"></span> <span class="badge count"><%= event.get_upvotes.size %></span>
               <% end %>
             <% else %>
-              <%= link_to user_event_like_path(event.user, event), method: "put", class: "btn btn-default btn-sm" do %>
-                <span class = "glyphicon glyphicon-ok"></span> <span class="badge"><%= event.get_upvotes.size %></span>
+              <%= button_to user_event_like_path(event.user, event), method: "put",
+                class: "btn btn-default btn-sm likebtn", remote: true do %>
+                <span class = "glyphicon glyphicon-ok"></span> <span class="badge count"><%= event.get_upvotes.size %></span>
               <% end %>
             <% end %>
 

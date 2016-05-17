@@ -28,6 +28,10 @@ $(document).ready(function(){
   setMapHeight();
   // googleMapBuild();
   geoFindMe();
+
+  $('.like').click( function() {
+    console.log("liked!");
+  });
 });
 
 $(document).on("page:load", function(){

@@ -13,6 +13,7 @@
 
       <div class="row">
         <div class = "col-sm-6 space-top">
+          <%= f.file_field :avatar %>
           <%= f.label "First Name" %><br />
           <%= f.text_field :firstname, autocomplete: "off", class: "form-control", required: "required" %>
         </div>
@@ -57,9 +58,6 @@
 
                 <%= f.label :password_confirmation %><br />
                 <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control", placeholder: "Confirm New Password" %>
-
-
-
             </div>
           </div>
           <hr />
@@ -70,21 +68,19 @@
 
       <div class="actions row space-top">
         <div class = "col-sm-12">
-          <%= f.submit "Save", class:"btn btn-success btn-block" %>
+          <%= button_to "Save", user_path(@user), method: :get, class:"btn btn-success btn-block" %>
         </div>
       </div>
       <div class = "row space-top">
         <div class = "col-sm-12">
-          <%= link_to "Cancel", user_path(@user), method: "get", class:"btn btn-block btn-default" %>
+          <%= link_to "Cancel", user_path(@user), method: :get, class:"btn btn-block btn-default" %>
         </div>
       </div>
       <div class = "row space-top">
         <div class = "col-sm-12">
-          <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class:"btn btn-block btn-danger" %>
+          <%= button_to "Delete my account", registration_path(resource_name), data: { confirm: " " }, method: :delete, class:"btn btn-block btn-danger" %>
         </div>
       </div>
-
     <% end %>
-
   </div>
 </div>
