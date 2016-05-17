@@ -10,7 +10,7 @@ User.destroy_all
 Event.destroy_all
 
 thomas = User.create(
-  avatar: "/public/thomas-profile.jpeg",
+  avatar: "thomas-profile.jpeg",
   email: "thomas@test.com",
   firstname: "Thomas",
   lastname: "Thurwood",
