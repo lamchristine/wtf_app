@@ -11,6 +11,7 @@
 </div>
 
 <script>
+
   var mapStyle = [
     {
         "featureType": "landscape.natural",
@@ -98,9 +99,9 @@
     }
   }, function(){
 
+
     var eventhash = <%=raw @hash.to_json %>;
     markers = handler.addMarkers(<%=raw @hash.to_json %>);
-
     <% if current_user %>
       var lat = eventhash[eventhash.length-1].lat;
       var lng = eventhash[eventhash.length-1].lng;
@@ -131,22 +132,6 @@
     }
   );
 
-  // function geoFindMe() {
-  //
-  //   function success(position) {
-  //     var latitude  = position.coords.latitude;
-  //     var longitude = position.coords.longitude;
-  //     $('#coordinates').val(latitude + ',' + longitude);
-  //     console.log(latitude + ',' + longitude);
-  //     return latitude + ',' + longitude
-  //   }
-  //
-  //   function error() {
-  //     alert("Unable to retrieve your location");
-  //   }
-  //
-  //   navigator.geolocation.getCurrentPosition(success, error);
-  // }
 
 
 
