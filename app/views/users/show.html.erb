@@ -26,7 +26,7 @@
         </div>
         <div class = "row">
           <%= link_to "Edit Profile", edit_user_registration_path, class: "btn btn-primary btn-block space-top" %>
-          <%= link_to "Delete Profile", user_registration_path, class: "btn btn-danger btn-block", method: :delete %>
+          <%= link_to "Delete Profile", user_registration_path, class: "btn btn-danger btn-block", method: :delete, data: {confirm: ' '} %>
         </div>
 
       </div>
@@ -62,7 +62,7 @@
 
             <div class = "row space-left">
               <%= link_to "Edit", edit_user_event_path(@user, event), class: "btn btn-primary btn-sm" %>
-              <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: 'Are you sure?'} %>
+              <%= link_to "Delete", user_event_path(@user, event), class: "btn btn-danger btn-sm", method: :delete, data: {confirm: ' '} %>
             </div>
             <hr />
           </div>
