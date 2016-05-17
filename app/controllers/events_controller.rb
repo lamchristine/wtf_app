@@ -1,7 +1,7 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    @events = Event.where(created_at: 1.hours.ago..Time.now)
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
@@ -83,7 +83,7 @@ class EventsController < ApplicationController
       format.js { render :layout => false }
 
       @event.liked_by current_user
-    
+
     end
   end
 
