@@ -10,8 +10,21 @@ class UsersController < ApplicationController
         flash[:error] = "This profile is private."
         redirect_to root_path
       end
-
   end
+
+ def edit
+   @user = User.find_by(id: params[:id])
+ end
+
+ def update
+   @user = User.find_by(id: params[:id])
+
+   if @user.save
+     redirect_to user_path
+   else
+     render :edit
+   end
+ end
 
   private
   def user_params
