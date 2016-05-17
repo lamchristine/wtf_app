@@ -17,11 +17,12 @@ $.rails.showConfirmDialog = (link) ->
            </div>
            <div class="modal-body" style="background-color: white; height: 25%; font-size: 30px; text-align: center; color: darkgrey;">
              <p>Are you sure you want to delete?</p>
+             <div class="modal-footer" style="text-align: center;">
+               <a data-dismiss="modal" class="btn" style="border-style: solid; border-color: darkgrey;">Cancel</a>
+               <a data-dismiss="modal" class="btn btn-primary confirm">Okay</a>
+             </div>
            </div>
-           <div class="modal-footer">
-             <a data-dismiss="modal" class="btn" style="background-color: white;">Cancel</a>
-             <a data-dismiss="modal" class="btn btn-primary confirm">OKAY</a>
-           </div>
+
          </div>
          """
   $(html).modal()
