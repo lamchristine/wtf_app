@@ -29,8 +29,9 @@
     <p><em><%= time_ago_in_words(event.created_at).gsub('about', '') %> ago</em></p>
 
     <% if user == current_user %>
-      <%= link_to "Edit", edit_user_event_path(user, event), class: "btn btn-default btn-xs" %>
-      <%= link_to "Delete", user_event_path(user, event), class: "btn btn-default btn-xs space-left", method: :delete, data: {confirm: 'Are you sure?'} %>
+
+      <%= link_to "Edit", edit_user_event_path(user, event), class: "btn btn-primary btn-xs" %>
+      <%= link_to "Delete", user_event_path(user, event), class: "btn btn-danger btn-xs space-left", method: :delete, data: {confirm: ' '} %>
     <% end %>
 
 
