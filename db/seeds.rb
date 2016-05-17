@@ -10,7 +10,7 @@ User.destroy_all
 Event.destroy_all
 
 thomas = User.create(
-  avatar: "http://vignette1.wikia.nocookie.net/jadensadventures/images/c/c7/VeTl4V1.png/revision/latest?cb=20141007160851",
+  avatar: "assets/images/thomas-profile.jpeg",
   email: "thomas@test.com",
   firstname: "Thomas",
   lastname: "Thurwood",
@@ -18,7 +18,7 @@ thomas = User.create(
   password: "testthomas")
 
 dan = User.create(
-  avatar: "https://s-media-cache-ak0.pinimg.com/736x/0c/c2/8c/0cc28c3adebdd5716286e2b298089aa8.jpg",
+  avatar: "assets/images/dan-profile.jpeg",
   email: "dan@test.com",
   firstname: "Dan",
   lastname: "Smith",
@@ -26,7 +26,7 @@ dan = User.create(
   password: "testdan")
 
 melanie = User.create(
-  avatar: "http://redcrosschat.org/wp-content/uploads/2013/06/captain-crunch-face.gif",
+  avatar: "assets/images/melanie-profile.jpeg",
   email: "melanie@test.com",
   firstname: "Melanie",
   lastname: "Sullivan",
@@ -34,7 +34,7 @@ melanie = User.create(
   password: "testmelanie")
 
 kathleen = User.create(
-  avatar: "userprofile.png",
+  avatar: "assets/images/kathleen-profile.jpeg",
   email: "kathleen@test.com",
   firstname: "Kathleen",
   lastname: "Roberts",
