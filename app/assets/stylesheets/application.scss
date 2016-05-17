@@ -35,6 +35,11 @@ $lightgreen: #afffe4;
 $green: #47cd91;
 $red: #e02e3e;
 
+// Fonts
+$wtf-font: 'Amatic SC', cursive;
+$paragraph-font: 'Open Sans', sans-serif;
+
+
 
 // Mixins
 @mixin buttons ($color) {
@@ -165,6 +170,7 @@ $red: #e02e3e;
   }
 
   body {
+    font-family: Arial, sans-serif;
     background: image-url("bg-img-new_desaturate") no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
@@ -182,6 +188,10 @@ $red: #e02e3e;
 
   img {
     width: 100%;
+  }
+
+  p {
+    font-family: $paragraph-font;
   }
 
   .flat-input {
@@ -229,6 +239,10 @@ $red: #e02e3e;
     margin-top: 20px;
   }
 
+  .opensans {
+    font-family: $paragraph-font;
+  }
+
   .popup-reported {
     font-size: 11px;
   }
@@ -274,7 +288,8 @@ $red: #e02e3e;
 
   #brand-logo {
     color: $blue!important;
-    font-size: 25px;
+    font-family: $wtf-font;
+    font-size: 40px;
     text-shadow: 2px 1px 4px lighten(grey, 35);
   }
 
