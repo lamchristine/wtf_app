@@ -10,7 +10,7 @@ User.destroy_all
 Event.destroy_all
 
 thomas = User.create(
-  avatar: "http://cdn.pet360.com/pet360/Content/Images/CMS/Slideshows/cms_resized_large/cats-that-stay-small1.lg.jpg",
+  avatar: "thomas-profile.jpeg",
   email: "thomas@test.com",
   firstname: "Thomas",
   lastname: "Thurwood",
