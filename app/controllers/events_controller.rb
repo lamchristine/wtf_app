@@ -1,10 +1,10 @@
 class EventsController < ApplicationController
 
   def index
+
+
     # Filters out events that were created longer than precribed time;
     # can be changed to e.g. 1 hour ago by changing 365.days.ago to 1.hours.ago
-
-
     if params[:unit] && params[:num]
       unit = params[:unit].to_s
       num = params[:num].to_i
@@ -16,11 +16,12 @@ class EventsController < ApplicationController
     else
       @events = Event.where(created_at: 12.months.ago..Time.now)
     end
-    
 
+    # HASH SENT TO JAVASCRIPT (AKA EVENTHASH)
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
+
       if event.category == "Heard It"
         marker.picture({
           "url" => view_context.image_path('heard_icon_30.png'),
@@ -34,16 +35,15 @@ class EventsController < ApplicationController
           "height" => 30
           })
       end
+
       marker.infowindow render_to_string(:partial => "/events/info", :locals => { :title => event.title,
         :user_path => user_path(event.user), :username => event.user.username, :content => event.content,
-        :user => event.user, :avatar => event.user.avatar, :category => event.category, :event => event
+        :user => event.user, :avatar => event.user.avatar, :category => event.category, :event => event,
+        :user_id => event.user.id
       })
     end
+    @hash.last[:user_id] = @events.last.user.id
   end
-
-
-
-
 
 
 

@@ -11,11 +11,6 @@ function setMapHeight(){
 $(document).on("ready page:load", function(){
 
   geoFindMe();
-  initMap();
-  setMapHeight();
-
-  console.log('ready page:load');
-
 
 });
 
@@ -25,21 +20,24 @@ $(window).resize(function(){
   // geoFindMe();
 });
 
+
 function setCoordinates() {
   $('#coordinates').val(latitude+","+longitude);
   var val = $('#coordinates').val();
-  console.log("coordinates set to: ", val);
+  console.log("setCoordinates: coordinates set to: ", val, " if on new event page");
 }
 
+
 function geoFindMe() {
-  console.log('geoFindMe');
+
   function success(position) {
     latitude  = position.coords.latitude;
     longitude = position.coords.longitude;
-    console.log("latitude= "+latitude);
-    console.log("longitude= "+longitude);
-    // $('#coordinates').val(latitude + ',' + longitude);
+    console.log("GeoSuccess: latitude = "+latitude);
+    console.log("GeoSuccess: longitude = "+longitude);
+
     setCoordinates();
+    initMap();
   }
 
   function error() {
@@ -139,32 +137,52 @@ function initMap(){
     var eventhash = window.eventhash;
     markers = handler.addMarkers(eventhash);
 
-    //<% if current_user %>
-    var lat = eventhash[eventhash.length-1].lat;
-    var lng = eventhash[eventhash.length-1].lng;
-    console.log("lat: " + lat + ", lng: ", + lng);
-    // <% else %>
-      // var coordinates = geoFindMe();
-      // console.log(coordinates);
-      // var coord_arr = coordinates.split(',');
-      // console.log(coord_arr);
-      // var lat = parseFloat(coord_arr[0]);
-      // var lng = parseFloat(coord_arr[1]);
-    //<% end %>
+
+    var lastEvent = eventhash[eventhash.length-1];
+    var currentUserId = parseInt($('#current_user').attr('data'));
 
 
+    console.log(eventhash);
+    var lat = lastEvent.lat;
+    var lng = lastEvent.lng;
+    console.log("Initmap: lat: " + lat + ", lng: " + lng);
 
-    //to center the map AND adjust zoom to see ALL markers
+    console.log('Initmap: lastEvent.user_id = ', lastEvent.user_id);
+    console.log('Initmap: current_user data = ', currentUserId);
+
+    // SEND LAT AND LONG AND USERID TO HIDDEN ATTRIBUTE IN POPUP
+    // SEND USERID TO ATTRIBUTE IN HASH
+    // IF NAV == ATTR SEND TO NEW EVENT
+    // ELSE SEND TO CURRENT LOCATION
+
+    if (!isNaN(currentUserId)){
+      if (lastEvent.user_id === currentUserId){
+        lat = lastEvent.lat;
+        lng = lastEvent.lng;
+        console.log("Initmap: User === lastUser?");
+        console.log(lastEvent.user_id === currentUserId);
+      } else {
+        lat = latitude;
+        lng = longitude;
+      }
+    } else {
+      lat = latitude;
+      lng = longitude;
+      console.log("Initmap: this should be your location: ",lat,",",lng);
+    }
+
+
 
 
     //to center on a marker
     handler.getMap().panTo({lat: lat, lng: lng});
+    console.log ("Initmap: pan to: ", lat, lng);
     handler.getMap().setZoom(15);
     //to set the map zoom
     // handler.fitMapToBounds();
     // handler.getMap().setZoom(15);
 
-
+    setMapHeight();
 
     }
   );
