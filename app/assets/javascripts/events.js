@@ -15,7 +15,7 @@ $(document).on("ready page:load", function(){
     $( "#flash_error" ).fadeOut( "slow", function() {
       $('#flash_error').remove();
     });
-  }, 5000);
+  }, 3000);
 });
 
 // resets Google Map height on change of screen size
