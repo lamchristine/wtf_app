@@ -82,20 +82,25 @@
         </div><!-- /.navbar-collapse -->
       </div>
     </nav>
-    <div id="flash_error">
-      <% flash.each do |name, msg| %>
-        <% if name === "notice" %>
-          <li class = "bg-success"><%= name %> : <%= msg %></li>
-        <% else %>
-          <li class = "bg-danger"><%= name %> : <%= msg %></li>
+
+
+    <div class = "row" id="content-area">
+
+      <div id="flash_error">
+        <% flash.each do |name, msg| %>
+          <% if name === "notice" %>
+            <li class = "bg-success text-success"><%= name %> : <%= msg %></li>
+          <% else %>
+            <li class = "bg-danger text-danger"><%= name %> : <%= msg %></li>
+          <% end %>
         <% end %>
-      <% end %>
-    </div>
+      </div>
 
-    <div class = "row">
-
+      <div class="col-xs-2 col-xs-offset-4"><center><span class="glyphicon glyphicon-refresh glyphicon-refresh-animate"></span></center></div>
 
       <%= yield %>
+
+
 
     </div>
   </div>
