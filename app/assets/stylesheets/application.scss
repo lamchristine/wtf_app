@@ -102,6 +102,7 @@ $paragraph-font: 'Open Sans', sans-serif;
 
   .btn-success {
     @include buttons ($green);
+    box-shadow: 1px 2px 3px lightgrey;
   }
   .btn-success:hover {
     @include buttons-hover ($green);
@@ -135,18 +136,6 @@ $paragraph-font: 'Open Sans', sans-serif;
     text-decoration: none;
   }
 
-  // .pill {
-  //   border-radius: 0px;
-  // }
-
-  // .red {
-  //   color: $red!important;
-  //   border-color: $red!important;
-  // }
-  // .blue {
-  //   color: $darkblue!important;
-  //   border-color: $darkblue!important;
-  // }
 
 // Bootstrap BGs
   .bg-success {
