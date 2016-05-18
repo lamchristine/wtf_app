@@ -7,10 +7,10 @@
       <div class = "col-sm-4 col-sm-offset-1 col-xs-offset-1 space-top center">
         <div class = "row">
           <div class = "col-sm-8 col-sm-offset-2 col-xs-offset-1 col-xs-9">
-            <% if @user.avatar %>
-              <%= image_tag @user.avatar, class:"avatar" %>
-            <% else %>
+            <% if @user.avatar.blank? %>
               <%= image_tag "userprofile.png", class:"avatar" %>
+            <% else %>
+              <%= image_tag @user.avatar, class:"avatar" %>
             <% end %>
           </div>
 
