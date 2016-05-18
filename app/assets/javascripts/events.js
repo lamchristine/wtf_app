@@ -9,6 +9,13 @@ function setMapHeight(){
 $(document).on("ready page:load", function(){
   // find users location
   geoFindMe();
+
+
+  setTimeout(function removeFlash(){
+    $( "#flash_error" ).fadeOut( "slow", function() {
+      $('#flash_error').remove();
+    });
+  }, 5000);
 });
 
 // resets Google Map height on change of screen size

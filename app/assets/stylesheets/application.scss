@@ -213,17 +213,26 @@ $paragraph-font: 'Open Sans', sans-serif;
     list-style: none;
   }
 
+  #content-area {
+    position: relative;
+  }
+
+  #flash_error {
+    z-index:100;
+    position:absolute;
+    width:100%;
+    top:0px;
+  }
+
   #map {
       display: block;
-      position:absolute;
+      position: relative;
       height: 800px;
-      // height: 100%;
       width: 100%;
       bottom:0;
-      top:0;
-      left:0;
-      right:0;
-      // margin-top:50px; /* adjust top margin to your header height */
+      top:40;
+      z-index:10;
+
   }
 
   .avatar {
