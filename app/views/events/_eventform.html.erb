@@ -9,17 +9,18 @@
 
   </div>
 </div>
-<div class = "row">
-  <div class="collapse" id="collapse">
-    <div class="well">
+<div class = "row IMHERE">
+  <div class="collapse IMHERE" id="collapse">
+    <div class="well IMHERE">
       <div class="row">
         <%= f.label :address, class:"control-label" %>
       </div>
       <div class="row">
         <%= f.text_field :address, class: "form-control flat-input flat-input-dark", placeholder: "Address", autofocus: true %>
       </div>
-      <div id="coordinates">
-      <%= hidden_field_tag("coordinates") %>
+      <div class = "IMHERE">
+      <%= hidden_field_tag "coordinates", id: "coordinates"  %>
+
     </div>
     </div>
   </div>
