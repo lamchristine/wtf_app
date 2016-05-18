@@ -1,7 +1,23 @@
 class EventsController < ApplicationController
 
   def index
-    @events = Event.all
+    # Filters out events that were created longer than precribed time;
+    # can be changed to e.g. 1 hour ago by changing 365.days.ago to 1.hours.ago
+
+
+    if params[:unit] && params[:num]
+      unit = params[:unit].to_s
+      num = params[:num].to_i
+      if unit == "hours"
+        @events = Event.where(created_at: num.hours.ago..Time.now)
+      elsif unit == "months"
+        @events = Event.where(created_at: num.months.ago..Time.now)
+      end
+    else
+      @events = Event.where(created_at: 12.months.ago..Time.now)
+    end
+    
+
     @hash = Gmaps4rails.build_markers(@events) do |event, marker|
       marker.lat event.latitude
       marker.lng event.longitude
@@ -24,6 +40,13 @@ class EventsController < ApplicationController
       })
     end
   end
+
+
+
+
+
+
+
 
   def new
      @user = User.find_by(id: params[:user_id])
@@ -83,7 +106,7 @@ class EventsController < ApplicationController
       format.js { render :layout => false }
 
       @event.liked_by current_user
-    
+
     end
   end
 
