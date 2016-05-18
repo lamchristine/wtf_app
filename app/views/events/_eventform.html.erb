@@ -18,8 +18,9 @@
       <div class="row">
         <%= f.text_field :address, class: "form-control flat-input flat-input-dark", placeholder: "Address", autofocus: true %>
       </div>
-      <div id="coordinates">
-      <%= hidden_field_tag("coordinates") %>
+      <div>
+      <%= hidden_field_tag "coordinates", id: "coordinates"  %>
+
     </div>
     </div>
   </div>

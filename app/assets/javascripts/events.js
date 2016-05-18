@@ -1,17 +1,22 @@
+
+
 var navHeight = 52;
+var latitude;
+var longitude;
 
 function setMapHeight(){
   $("#map").css("height", $( window ).height() - navHeight);
 }
 
 $(document).on("ready page:load", function(){
+
+  geoFindMe();
   initMap();
   setMapHeight();
-  geoFindMe();
 
-  $('.like').click( function() {
-    console.log("liked!");
-  });
+  console.log('ready page:load');
+
+
 });
 
 // resets Google Map height on change of screen size
@@ -20,15 +25,21 @@ $(window).resize(function(){
   // geoFindMe();
 });
 
+function setCoordinates() {
+  $('#coordinates').val(latitude+","+longitude);
+  var val = $('#coordinates').val();
+  console.log("coordinates set to: ", val);
+}
 
 function geoFindMe() {
-
+  console.log('geoFindMe');
   function success(position) {
-    var latitude  = position.coords.latitude;
-    var longitude = position.coords.longitude;
-    console.log(latitude);
-    console.log(longitude);
-    $('#coordinates').val(latitude + ',' + longitude);
+    latitude  = position.coords.latitude;
+    longitude = position.coords.longitude;
+    console.log("latitude= "+latitude);
+    console.log("longitude= "+longitude);
+    // $('#coordinates').val(latitude + ',' + longitude);
+    setCoordinates();
   }
 
   function error() {
@@ -131,6 +142,7 @@ function initMap(){
     //<% if current_user %>
     var lat = eventhash[eventhash.length-1].lat;
     var lng = eventhash[eventhash.length-1].lng;
+    console.log("lat: " + lat + ", lng: ", + lng);
     // <% else %>
       // var coordinates = geoFindMe();
       // console.log(coordinates);
@@ -141,13 +153,18 @@ function initMap(){
     //<% end %>
 
 
-    // handler.bounds.extendWith(markers); // is this doing anything?
+
     //to center the map AND adjust zoom to see ALL markers
-    // handler.fitMapToBounds(); // BREAKS ALL THE THINGS
+
+
     //to center on a marker
-    handler.getMap().panTo({lat: lat, lng: lng})
-    //to set the map zoom
+    handler.getMap().panTo({lat: lat, lng: lng});
     handler.getMap().setZoom(15);
+    //to set the map zoom
+    // handler.fitMapToBounds();
+    // handler.getMap().setZoom(15);
+
+
 
     }
   );

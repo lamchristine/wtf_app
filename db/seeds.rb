@@ -122,4 +122,4 @@ Event.create({
   category: "Saw It",
   })
 
-p "Created " + User.count.to_s + " Users" + Event.count.to_s
+p "Created " + User.count.to_s + " Users, and " + Event.count.to_s + " Events"
