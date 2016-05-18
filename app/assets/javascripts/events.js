@@ -39,6 +39,7 @@ function geoFindMe() {
 }
 
 function initMap(){
+
   var mapStyle = [
     {
         "featureType": "landscape.natural",
@@ -114,7 +115,6 @@ function initMap(){
 
 
 
-
   handler = Gmaps.build('Google');
   handler.buildMap({
     provider: {
@@ -124,8 +124,7 @@ function initMap(){
     internal: {
       id: 'map'
     }
-  }, function(){
-
+  }, function onBuildMapSuccess(){
     var eventhash = window.eventhash;
     markers = handler.addMarkers(eventhash);
 
@@ -142,13 +141,14 @@ function initMap(){
     //<% end %>
 
 
-    handler.bounds.extendWith(markers);
+    // handler.bounds.extendWith(markers); // is this doing anything?
     //to center the map AND adjust zoom to see ALL markers
-    handler.fitMapToBounds();
+    // handler.fitMapToBounds(); // BREAKS ALL THE THINGS
     //to center on a marker
     handler.getMap().panTo({lat: lat, lng: lng})
     //to set the map zoom
     handler.getMap().setZoom(15);
+
     }
   );
 }
