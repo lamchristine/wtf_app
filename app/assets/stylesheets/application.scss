@@ -135,7 +135,10 @@ $paragraph-font: 'Open Sans', sans-serif;
     outline:0 !important;
     text-decoration: none;
   }
-
+  a:focus {
+    outline:0 !important;
+    text-decoration: none;
+  }
 
 // Bootstrap BGs
   .bg-success {
@@ -302,7 +305,7 @@ $paragraph-font: 'Open Sans', sans-serif;
   #brand-logo {
     color: $blue!important;
     font-family: $wtf-font;
-    font-size: 40px;
+    font-size: 47px;
     text-shadow: 2px 1px 4px lighten(grey, 35);
   }
 
