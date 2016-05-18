@@ -1,0 +1,9 @@
+console.log("hit upvote.js.erb");
+
+$('.like').bind('ajax:success', function() {
+
+  $('span.badge.count').text('20');
+});
+
+$('.count').text('<%=escape_javascript @event.get_upvotes.size.to_s %>')
+$('.likebtn').addClass('active');

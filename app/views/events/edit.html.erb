@@ -1,0 +1,14 @@
+<div class = "col-xs-8 col-xs-offset-2 space-top card" id="event-form">
+  <div class = "col-xs-10 col-xs-offset-1 space-top">
+    <div class="row">
+      <h2>Edit Event</h2>
+    </div>
+    <div class="form-group">
+      <%= form_for(@event, url: "/users/#{current_user.id}/events/#{params[:id]}",:html => {class: "form-horizontal", role: "form"}) do |f| %>
+
+        <%= render :partial => 'eventform', :locals => {:f => f} %>
+
+      <% end %>
+    </div>
+  </div>
+</div>
