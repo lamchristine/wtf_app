@@ -1,5 +1,3 @@
-
-
 var navHeight = 52;
 var latitude;
 var longitude;
@@ -9,18 +7,16 @@ function setMapHeight(){
 }
 
 $(document).on("ready page:load", function(){
-
+  // find users location
   geoFindMe();
-
 });
 
 // resets Google Map height on change of screen size
 $(window).resize(function(){
   setMapHeight();
-  // geoFindMe();
 });
 
-
+// Sets Users Latitude and Longitude on Event Create
 function setCoordinates() {
   $('#coordinates').val(latitude+","+longitude);
   var val = $('#coordinates').val();
@@ -36,8 +32,17 @@ function geoFindMe() {
     console.log("GeoSuccess: latitude = "+latitude);
     console.log("GeoSuccess: longitude = "+longitude);
 
-    setCoordinates();
-    initMap();
+    // Set Users Lat + Long in Event Create
+    if ($('body.events.new').length || $('body.events.edit').length) {
+      console.log("about to set coordinates");
+      setCoordinates();
+    }
+
+    // Initialize Map
+    if ($('body.events.index').length) {
+      console.log("about to InitMap");
+      initMap();
+    }
   }
 
   function error() {
@@ -48,7 +53,7 @@ function geoFindMe() {
 }
 
 function initMap(){
-
+  /////// MAP STYLES ////////
   var mapStyle = [
     {
         "featureType": "landscape.natural",
@@ -120,10 +125,10 @@ function initMap(){
         ]
     }
   ];
+  /////// END MAP STYLES ////////
 
 
-
-
+  // Build Google Map
   handler = Gmaps.build('Google');
   handler.buildMap({
     provider: {
@@ -134,33 +139,28 @@ function initMap(){
       id: 'map'
     }
   }, function onBuildMapSuccess(){
+
     var eventhash = window.eventhash;
     markers = handler.addMarkers(eventhash);
 
-
+    // Set last Event
     var lastEvent = eventhash[eventhash.length-1];
+
+    // Grab current User ID from Navbar
     var currentUserId = parseInt($('#current_user').attr('data'));
 
-
-    console.log(eventhash);
     var lat = lastEvent.lat;
     var lng = lastEvent.lng;
-    console.log("Initmap: lat: " + lat + ", lng: " + lng);
 
-    console.log('Initmap: lastEvent.user_id = ', lastEvent.user_id);
-    console.log('Initmap: current_user data = ', currentUserId);
 
-    // SEND LAT AND LONG AND USERID TO HIDDEN ATTRIBUTE IN POPUP
-    // SEND USERID TO ATTRIBUTE IN HASH
-    // IF NAV == ATTR SEND TO NEW EVENT
-    // ELSE SEND TO CURRENT LOCATION
+    if (!isNaN(currentUserId)){   // If User is logged in
 
-    if (!isNaN(currentUserId)){
+      // If the current User also made the last event, set Lat & Long to that events coordinates and send them there
       if (lastEvent.user_id === currentUserId){
         lat = lastEvent.lat;
         lng = lastEvent.lng;
-        console.log("Initmap: User === lastUser?");
-        console.log(lastEvent.user_id === currentUserId);
+
+        // if not, send them to their current location
       } else {
         lat = latitude;
         lng = longitude;
@@ -168,20 +168,17 @@ function initMap(){
     } else {
       lat = latitude;
       lng = longitude;
-      console.log("Initmap: this should be your location: ",lat,",",lng);
     }
-
-
-
 
     //to center on a marker
     handler.getMap().panTo({lat: lat, lng: lng});
-    console.log ("Initmap: pan to: ", lat, lng);
+
+    // Set zoom
     handler.getMap().setZoom(15);
     //to set the map zoom
     // handler.fitMapToBounds();
-    // handler.getMap().setZoom(15);
 
+    // Resize map to the browser window
     setMapHeight();
 
     }
