@@ -9,4 +9,8 @@ class User < ActiveRecord::Base
   has_many :events
   acts_as_voter
 
+  # def avatar
+  #   avatar.present? ? avatar.url : "userprofile.png"
+  # end
+
 end

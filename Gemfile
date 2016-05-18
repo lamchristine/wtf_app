@@ -53,7 +53,12 @@ gem 'will_paginate-bootstrap'
 
 gem 'bootstrap-sass', '~> 3.3.6'
 
+#image uploading
 gem 'carrierwave'
+
+#image processing
+gem 'mini_magick', '~> 4.5', '>= 4.5.1'
+
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 
