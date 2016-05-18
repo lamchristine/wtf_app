@@ -28,7 +28,7 @@ Technologies Used:
 * SASS
 
 Existing Features:
-* Dyanmic Google Map with geolocation capabilities
+* Dynamic Google Map with geolocation capabilities
 * Unique Bootstrap icons
 * A user can create a profile and upload an individual avatar
 * A user can post an event using their current location, or using a typed-in address
