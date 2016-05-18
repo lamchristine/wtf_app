@@ -68,7 +68,7 @@
 
 
             <% if user_signed_in? %>
-              <li><%= link_to current_user.username, user_path(current_user) %></li>
+              <li><%= link_to current_user.username, user_path(current_user), id: "current_user", data: current_user.id %></li>
               <li><a href="#" data-toggle="modal" data-target="#about-modal">About</a></li>
               <li><%= link_to "Sign out", destroy_user_session_path, :method => :delete %></li>
 
