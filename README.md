@@ -3,10 +3,10 @@
 This application enables users to communicate sudden problems, emergencies or detours while walking or cycling.  A user can post a new event, "thank" another user for their heads-up or comment on another user's event.
 
 Contributors
-* Adam Beck @mradambeck
-* Christine Lam @lamchristine
-* Hector Coronado @hectorcoronado
-* Emily Anne Moses @eamoses
+* [Adam Beck](https://github.com/mradambeck) @mradambeck
+* [Christine Lam](https://github.com/lamchristine) @lamchristine
+* [Hector Coronado](https://github.com/hectorcoronado) @hectorcoronado
+* [Emily Anne Moses](https://github.com/eamoses) @eamoses
 
 Link to Heroku live site: https://seen-it-heard-it.herokuapp.com/
 
