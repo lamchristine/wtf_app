@@ -1,6 +1,6 @@
 # Heard it? Seen it? Report it!
 
-This application enables users to communicate sudden problems, emergencies or detours while walking or cycling.  A user can post a new event, "thank" another user for their heads-up or comment on another user's event.
+This application enables users to communicate sudden problems, emergencies or detours while walking or cycling.  A user can post a new event or "thank" another user for their heads-up.
 
 Contributors
 * [Adam Beck](https://github.com/mradambeck) @mradambeck
@@ -10,7 +10,7 @@ Contributors
 
 Link to Heroku live site: https://seen-it-heard-it.herokuapp.com/
 
-Technologies Used:
+Technologies Used
 * Ruby
 * Rails
 * CoffeeScript
@@ -27,20 +27,20 @@ Technologies Used:
 * Heroku
 * SASS
 
-Existing Features:
+Existing Features
 * Dynamic Google Map with geolocation capabilities
 * Unique Bootstrap icons
 * A user can create a profile and upload an individual avatar
 * A user can post an event using their current location, or using a typed-in address
 * A user can "thank" other users for their event contributions
-* A user can comment on other user's events
 * A user can delete their profile
 * A user can delete their events
 
-Planned Features:
+Planned Features
+* A user can comment on other user's events
 * Direct messaging between users
 
-Screenshot:
-![Alt text](public/screenShotWtf.png?raw=true "Vagabond")
+Screenshot
+![Alt text](public/screenShotWtf.png?raw=true "WTF?!")
 
 Github Link: https://git.heroku.com/seen-it-heard-it.git
