@@ -142,7 +142,7 @@ function initMap(){
     //<% if current_user %>
     var lat = eventhash[eventhash.length-1].lat;
     var lng = eventhash[eventhash.length-1].lng;
-    console.log("lat: " + lat + ", long: ", + long);
+    console.log("lat: " + lat + ", lng: ", + lng);
     // <% else %>
       // var coordinates = geoFindMe();
       // console.log(coordinates);
@@ -155,12 +155,14 @@ function initMap(){
 
 
     //to center the map AND adjust zoom to see ALL markers
-    // handler.fitMapToBounds(); // BREAKS ALL THE THINGS
+
 
     //to center on a marker
-    handler.getMap().panTo({lat: lat, lng: lng})
-    //to set the map zoom
+    handler.getMap().panTo({lat: lat, lng: lng});
     handler.getMap().setZoom(15);
+    //to set the map zoom
+    // handler.fitMapToBounds();
+    // handler.getMap().setZoom(15);
 
 
 
