@@ -106,10 +106,27 @@ p {
   border-color: darken($color, 13)!important;
 }
 
+// Devise Errors
+  #error_explanation h2{
+    font-size: 16px;
+    display: inline;
+    color: #B0171F !important;
+    // text-shadow: .5px .5px .5px black;
+  }
+
+  #error_explanation li{
+    font-size: 16px;
+    display: inline;
+    color: #B0171F !important;
+    // text-shadow: .5px .5px .5px black;
+  }
 
 // Helpers
   .center {
     text-align: center;
+  }
+  .display-none {
+    display: none;
   }
   .space-left {
     margin-left: 10px;
@@ -134,7 +151,12 @@ p {
 
   .btn-success {
     @include buttons ($green);
+    box-shadow: 1px 2px 3px lightgrey;
   }
+
+  .btn-success:active,
+  .btn-success:active:focus,
+  .btn-success:focus,
   .btn-success:hover {
     @include buttons-hover ($green);
   }
@@ -145,6 +167,9 @@ p {
   .btn-primary  {
     @include buttons ($darkblue);
   }
+  .btn-primary:active,
+  .btn-primary:active:focus,
+  .btn-primary:focus,
   .btn-primary:hover {
     @include buttons-hover ($darkblue);
   }
@@ -155,6 +180,9 @@ p {
   .btn-danger {
     @include buttons ($red);
   }
+  .btn-danger:active,
+  .btn-danger:active:focus,
+  .btn-danger:focus,
   .btn-danger:hover {
     @include buttons-hover ($red);
   }
@@ -166,19 +194,10 @@ p {
     outline:0 !important;
     text-decoration: none;
   }
-
-  // .pill {
-  //   border-radius: 0px;
-  // }
-
-  // .red {
-  //   color: $red!important;
-  //   border-color: $red!important;
-  // }
-  // .blue {
-  //   color: $darkblue!important;
-  //   border-color: $darkblue!important;
-  // }
+  a:focus {
+    outline:0 !important;
+    text-decoration: none;
+  }
 
 // Bootstrap BGs
   .bg-success {
@@ -289,7 +308,6 @@ p {
     border-radius: 0px;
     background-color: $card-bg!important;
     border-color: darken($card-bg, 20)
-
   }
 
   .navbar-collapse.collapse {
@@ -317,7 +335,7 @@ p {
   #brand-logo {
     color: $blue!important;
     font-family: $wtf-font;
-    font-size: 40px;
+    font-size: 47px;
     text-shadow: 2px 1px 4px lighten(grey, 35);
   }
 
@@ -348,4 +366,5 @@ p {
     .user-info .row {
       margin-right: 3px!important;
     }
+
   }
