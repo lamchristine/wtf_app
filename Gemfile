@@ -79,7 +79,6 @@ group :development, :test do
   gem 'ffaker'
   gem 'rspec-rails'
   gem 'simplecov', require: false
-  gem 'spring'
   gem 'shoulda-matchers', '~> 3.1'
 end
 
