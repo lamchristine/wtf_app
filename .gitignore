@@ -15,3 +15,8 @@
 /log/*
 !/log/.keep
 /tmp
+/config/application.yml
+/.gitignore
+
+# Ignore application configuration
+/config/application.yml

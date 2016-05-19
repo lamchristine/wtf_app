@@ -1,0 +1,88 @@
+<div class = "col-xs-8 col-xs-offset-2 space-top card">
+  <div class = "col-xs-10 col-xs-offset-1">
+    <div class = "row">
+      <div class = "col-sm-12">
+        <%= link_to root_path, method: :get, class: "pull-right" do %>
+          <i class="glyphicon glyphicon-remove"></i>
+        <% end %>
+
+        <h2>Sign up</h2>
+
+      </div>
+    </div>
+
+    <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= devise_error_messages! %>
+
+      <div class="field row space-top">
+        <div class = "col-sm-6">
+          <%= f.label :firstname %><br />
+          <%= f.text_field :firstname, autofocus: true, class: "form-control flat-input", required: "required" %>
+        </div>
+        <div class = "col-sm-6">
+          <%= f.label :lastname %><br />
+          <%= f.text_field :lastname, autofocus: true, class: "form-control flat-input", required: "required" %>
+        </div>
+      </div>
+
+      <div class="field row space-top">
+        <div class = "col-sm-6">
+          <%= f.label :username %><br />
+          <%= f.text_field :username, autofocus: true, class: "form-control flat-input", required: "required" %>
+        </div>
+        <div class = "col-sm-6">
+          <%= f.label :email %><br />
+          <%= f.email_field :email, autofocus: true, class: "form-control flat-input", required: "required" %>
+        </div>
+      </div>
+
+      <div class="field row space-top">
+        <div class = "col-sm-6">
+          <%= f.label :password %>
+          <% if @minimum_password_length %>
+          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <% end %><br />
+          <%= f.password_field :password, autocomplete: "off", class: "form-control flat-input", required: "required" %>
+        </div>
+        <div class = "col-sm-6">
+          <%= f.label :password_confirmation %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off", class: "form-control flat-input", required: "required" %>
+        </div>
+      </div>
+
+      <div class="field row">
+        <div class = "col-sm-12">
+          <%= f.label :avatar %><br />
+
+          <!-- Restyles file upload button to look consistent -->
+          <div class="input-group">
+            <span class="input-group-btn">
+              <span class="btn btn-small btn-primary btn-inverse" onclick="$(this).parent().find('input[type=file]').click();">Browse</span>
+              <%= f.file_field :avatar, onchange: "$(this).parent().parent().find('.form-control').html($(this).val().split(/[\\\\|/]/).pop());", style: "display: none;" %>
+            </span>
+            <span class="form-control flat-input"></span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="row">
+        <hr />
+      </div>
+
+
+      <div class="actions row space-top">
+        <div class = "col-sm-12">
+          <%= f.submit "Sign up", class: "btn btn-block btn-success" %>
+
+        </div>
+      </div>
+    <% end %>
+
+    <div class="row space-top">
+      <div class = "col-sm-12">
+        <%= render "devise/shared/links" %>
+      </div>
+    </div>
+  </div>
+</div>
