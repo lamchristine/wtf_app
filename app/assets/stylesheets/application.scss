@@ -79,6 +79,9 @@ $paragraph-font: 'Open Sans', sans-serif;
   .center {
     text-align: center;
   }
+  .display-none {
+    display: none;
+  }
   .space-left {
     margin-left: 10px;
   }
@@ -277,7 +280,6 @@ $paragraph-font: 'Open Sans', sans-serif;
     border-radius: 0px;
     background-color: $card-bg!important;
     border-color: darken($card-bg, 20)
-
   }
 
   .navbar-collapse.collapse {
@@ -338,4 +340,5 @@ $paragraph-font: 'Open Sans', sans-serif;
     .user-info .row {
       margin-right: 3px!important;
     }
+
   }
