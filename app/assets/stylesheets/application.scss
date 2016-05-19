@@ -59,6 +59,7 @@ $paragraph-font: 'Open Sans', sans-serif;
 }
 
 
+
 // Devise Errors
   #error_explanation h2{
     font-size: 16px;
@@ -107,6 +108,10 @@ $paragraph-font: 'Open Sans', sans-serif;
     @include buttons ($green);
     box-shadow: 1px 2px 3px lightgrey;
   }
+
+  .btn-success:active,
+  .btn-success:active:focus,
+  .btn-success:focus,
   .btn-success:hover {
     @include buttons-hover ($green);
   }
@@ -117,6 +122,9 @@ $paragraph-font: 'Open Sans', sans-serif;
   .btn-primary  {
     @include buttons ($darkblue);
   }
+  .btn-primary:active,
+  .btn-primary:active:focus,
+  .btn-primary:focus,
   .btn-primary:hover {
     @include buttons-hover ($darkblue);
   }
@@ -127,6 +135,9 @@ $paragraph-font: 'Open Sans', sans-serif;
   .btn-danger {
     @include buttons ($red);
   }
+  .btn-danger:active,
+  .btn-danger:active:focus,
+  .btn-danger:focus,
   .btn-danger:hover {
     @include buttons-hover ($red);
   }
