@@ -79,6 +79,9 @@ $paragraph-font: 'Open Sans', sans-serif;
   .center {
     text-align: center;
   }
+  .display-none {
+    display: none;
+  }
   .space-left {
     margin-left: 10px;
   }
@@ -102,6 +105,7 @@ $paragraph-font: 'Open Sans', sans-serif;
 
   .btn-success {
     @include buttons ($green);
+    box-shadow: 1px 2px 3px lightgrey;
   }
   .btn-success:hover {
     @include buttons-hover ($green);
@@ -134,19 +138,10 @@ $paragraph-font: 'Open Sans', sans-serif;
     outline:0 !important;
     text-decoration: none;
   }
-
-  // .pill {
-  //   border-radius: 0px;
-  // }
-
-  // .red {
-  //   color: $red!important;
-  //   border-color: $red!important;
-  // }
-  // .blue {
-  //   color: $darkblue!important;
-  //   border-color: $darkblue!important;
-  // }
+  a:focus {
+    outline:0 !important;
+    text-decoration: none;
+  }
 
 // Bootstrap BGs
   .bg-success {
@@ -285,7 +280,6 @@ $paragraph-font: 'Open Sans', sans-serif;
     border-radius: 0px;
     background-color: $card-bg!important;
     border-color: darken($card-bg, 20)
-
   }
 
   .navbar-collapse.collapse {
@@ -313,7 +307,7 @@ $paragraph-font: 'Open Sans', sans-serif;
   #brand-logo {
     color: $blue!important;
     font-family: $wtf-font;
-    font-size: 40px;
+    font-size: 47px;
     text-shadow: 2px 1px 4px lighten(grey, 35);
   }
 
@@ -346,4 +340,5 @@ $paragraph-font: 'Open Sans', sans-serif;
     .user-info .row {
       margin-right: 3px!important;
     }
+
   }
