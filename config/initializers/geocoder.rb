@@ -1,4 +1,9 @@
 Geocoder.configure(
+
+  lookup: :bing,
+  api_key: ENV['BING_GEOCODE_ID'],
+  cache: Rails.cache
+
   # Geocoding options
   # timeout: 3,                 # geocoding service timeout (secs)
   # lookup: :google,            # name of geocoding service (symbol)
