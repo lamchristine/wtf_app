@@ -21,6 +21,7 @@ RSpec.describe Event, type: :model do
   # end
 
   #using the shoulda-matchers gem
+<<<<<<< HEAD
   describe Event, 'validation' do
     it { should validate_length_of(:title).is_at_most(50) }
     it { should validate_presence_of(:title) }
@@ -38,6 +39,25 @@ RSpec.describe Event, type: :model do
     it { should have_db_column(:content).of_type(:string) }
     it { should have_db_column(:category).of_type(:string) }
   end
+=======
+  # describe Event, 'validation' do
+  #   it { should validate_length_of(:title).is_at_most(50) }
+  #   it { should validate_presence_of(:title) }
+  #
+  #   it { should validate_length_of(:content).is_at_most(140) }
+  #   it { should validate_presence_of(:content) }
+  #
+  #   it { should validate_presence_of(:category) }
+  #
+  #   it { should belong_to(:user) }
+  # end
+  #
+  # describe Event, 'column_specification' do
+  #   it { should have_db_column(:title).of_type(:string) }
+  #   it { should have_db_column(:content).of_type(:string) }
+  #   it { should have_db_column(:category).of_type(:string) }
+  # end
+>>>>>>> master
 
 
 

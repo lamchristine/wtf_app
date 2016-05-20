@@ -7,15 +7,32 @@ function setMapHeight(){
 }
 
 $(document).on("ready page:load", function(){
+<<<<<<< HEAD
   // find users location
   geoFindMe();
 
 
+=======
+  
+  // find users location
+  geoFindMe();
+
+  // show loading image
+  if ($('body.events.index').length) {
+    $('#loading').removeClass("display-none");
+  }
+
+  // make flash messages disappear
+>>>>>>> master
   setTimeout(function removeFlash(){
     $( "#flash_error" ).fadeOut( "slow", function() {
       $('#flash_error').remove();
     });
   }, 3000);
+<<<<<<< HEAD
+=======
+
+>>>>>>> master
 });
 
 // resets Google Map height on change of screen size
@@ -188,6 +205,11 @@ function initMap(){
     // Resize map to the browser window
     setMapHeight();
 
+<<<<<<< HEAD
+=======
+    // Remove loading icon
+    $('#loading').addClass("display-none");
+>>>>>>> master
     }
   );
 }

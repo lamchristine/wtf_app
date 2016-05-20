@@ -61,8 +61,20 @@ class EventsController < ApplicationController
     @user = current_user
     @event = Event.new(event_params)
 
+<<<<<<< HEAD
     @event.address = params[:coordinates] if params[:event][:address].blank?
 
+=======
+    if params[:event][:address].blank?
+      @event.address = params[:coordinates]
+      coords = params[:coordinates].split(',')
+      @event.latitude = coords[0]
+      @event.longitude = coords[1]
+    else
+      @event.address = params[:event][:address]
+    end
+    
+>>>>>>> master
     @event.save
     @user.events << (@event)
 
