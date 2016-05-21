@@ -14,7 +14,7 @@
  // *= require_tree .
  // *= require_self
  */
-
+@import url('//fonts.googleapis.com/css?family=Amatic+SC:700|Open+Sans:400,400italic,600');
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
@@ -39,7 +39,55 @@ $red: #e02e3e;
 $wtf-font: 'Amatic SC', cursive;
 $paragraph-font: 'Open Sans', sans-serif;
 
+#brand-logo {
+  color: $blue!important;
+  font-family: $wtf-font;
+  font-size: 40px;
+  text-shadow: 2px 1px 4px lighten(grey, 35);
+}
 
+p {
+  font-family: $paragraph-font;
+}
+
+// Devise Errors
+  #error_explanation h2{
+    font-size: 16px;
+    display: inline;
+    color: #B0171F !important;
+    // text-shadow: .5px .5px .5px black;
+  }
+
+  #error_explanation li{
+    font-size: 16px;
+    display: inline;
+    color: #B0171F !important;
+    // text-shadow: .5px .5px .5px black;
+  }
+
+  body {
+    font-family: Arial, sans-serif;
+    background: image-url("bg-img-new_desaturate") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+  }
+
+  .opensans {
+    font-family: $paragraph-font;
+  }
+
+  .popup-reported {
+    font-size: 11px;
+  }
+
+  .verified {
+    .btn {
+      font-size: 18px;
+    }
+    font-size: 22px;
+  }
 
 // Mixins
 @mixin buttons ($color) {
@@ -58,8 +106,6 @@ $paragraph-font: 'Open Sans', sans-serif;
   border-color: darken($color, 13)!important;
 }
 
-
-
 // Devise Errors
   #error_explanation h2{
     font-size: 16px;
@@ -74,7 +120,6 @@ $paragraph-font: 'Open Sans', sans-serif;
     color: #B0171F !important;
     // text-shadow: .5px .5px .5px black;
   }
-
 
 // Helpers
   .center {
@@ -181,15 +226,6 @@ $paragraph-font: 'Open Sans', sans-serif;
     padding:0;
   }
 
-  body {
-    font-family: Arial, sans-serif;
-    background: image-url("bg-img-new_desaturate") no-repeat center center fixed;
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
-  }
-
   a {
     color: $darkblue;
   }
@@ -200,10 +236,6 @@ $paragraph-font: 'Open Sans', sans-serif;
 
   img {
     width: 100%;
-  }
-
-  p {
-    font-family: $paragraph-font;
   }
 
   .flat-input:focus {
@@ -269,21 +301,6 @@ $paragraph-font: 'Open Sans', sans-serif;
     margin-top: 20px;
   }
 
-  .opensans {
-    font-family: $paragraph-font;
-  }
-
-  .popup-reported {
-    font-size: 11px;
-  }
-
-  .verified {
-    .btn {
-      font-size: 18px;
-    }
-    font-size: 22px;
-  }
-
 
 // Navbar Styles
   .navbar {
@@ -342,8 +359,6 @@ $paragraph-font: 'Open Sans', sans-serif;
     from { transform: scale(1) rotate(0deg);}
     to { transform: scale(1) rotate(360deg);}
   }
-
-
 
 
 // Mobile view

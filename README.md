@@ -1,6 +1,6 @@
 # Heard it? Seen it? Report it!
 
-This application enables users to communicate sudden problems, emergencies or detours while walking or cycling.  A user can post a new event, "thank" another user for their heads-up or comment on another users event.
+This application enables users to communicate sudden problems, emergencies or detours while walking or cycling.  A user can post a new event or "thank" another user for their heads-up.
 
 Contributors
 * [Adam Beck](https://github.com/mradambeck) @mradambeck
@@ -8,7 +8,7 @@ Contributors
 * [Hector Coronado](https://github.com/hectorcoronado) @hectorcoronado
 * [Emily Anne Moses](https://github.com/eamoses) @eamoses
 
-Technologies Used:
+Technologies Used
 * Ruby
 * Rails
 * CoffeeScript
@@ -24,7 +24,7 @@ Technologies Used:
 * HTML5
 * SASS
 
-Existing Features:
+Existing Features
 * Dynamic Google Map with geolocation capabilities
 * Unique Bootstrap icons
 * A user can create a profile and upload an individual avatar
@@ -32,11 +32,11 @@ Existing Features:
 * A user can "thank" other users for their event contributions
 * A user can delete their events
 
-Planned Features:
+Planned Features
 * Direct messaging between users
 * Commenting on users events
 
-Screenshot:
-![Alt text](public/screenShotWtf.png?raw=true "Vagabond")
+Screenshot
+![Alt text](public/screenShotWtf.png?raw=true "WTF?!")
 
-Github Link: https://github.com/eamoses/wtf_app
+Github Link: https://github.com/eamoses/wtf_app/
