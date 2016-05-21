@@ -8,15 +8,14 @@ Contributors
 * [Hector Coronado](https://github.com/hectorcoronado) @hectorcoronado
 * [Emily Anne Moses](https://github.com/eamoses) @eamoses
 
-<<<<<<< HEAD
-Link to Heroku live site: https://seen-it-heard-it.herokuapp.com/
-=======
->>>>>>> master
+Link to Heroku live site: https://eamoses.github.io/wtf_app
 
 Technologies Used
 * Ruby
 * Rails
 * CoffeeScript
+* JavaScript
+* jQuery
 * Turbolinks
 * devise
 * geocoder
@@ -27,10 +26,6 @@ Technologies Used
 * CSS3
 * Bootstrap
 * HTML5
-<<<<<<< HEAD
-* Heroku
-=======
->>>>>>> master
 * SASS
 
 Existing Features
@@ -39,10 +34,6 @@ Existing Features
 * A user can create a profile and upload an individual avatar
 * A user can post an event using their current location, or using a typed-in address
 * A user can "thank" other users for their event contributions
-<<<<<<< HEAD
-* A user can delete their profile
-=======
->>>>>>> master
 * A user can delete their events
 
 Planned Features
@@ -52,8 +43,4 @@ Planned Features
 Screenshot
 ![Alt text](public/screenShotWtf.png?raw=true "WTF?!")
 
-<<<<<<< HEAD
-Github Link: https://git.heroku.com/seen-it-heard-it.git
-=======
 Github Link: https://github.com/eamoses/wtf_app/
->>>>>>> master
