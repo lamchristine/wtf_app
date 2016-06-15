@@ -1,5 +1,11 @@
 <div class = "col-xs-10 col-xs-offset-1 space-top card user-info" id="user_show">
-
+  <div class="row">
+    <div class="container">
+      <%= link_to root_path, method: :get, class: "pull-right" do %>
+        <i class="glyphicon glyphicon-remove"></i>
+      <% end %>
+    </div>
+  </div>
   <section id="user_itin">
 
     <!-- beginning of profile section -->
@@ -32,9 +38,6 @@
 
       <!-- beginning of posts -->
       <div class = "col-sm-5 col-sm-offset-1 col-xs-offset-1 space-top ">
-        <%= link_to root_path, method: :get, class: "pull-right" do %>
-          <i class="glyphicon glyphicon-remove"></i>
-        <% end %>
         <div class = "row">
           <h4> <%= @user.username %>'s Posts </h4>
           <hr />
