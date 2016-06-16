@@ -80,7 +80,7 @@ Event.create({
 Event.create({
   title: "Graffiti!",
   content: "What's with this new graffiti on my building??",
-  user_id: melanie.id,
+  user_id: thomas.id,
   longitude: -122.430088,
   latitude: 37.773658,
   category: "Saw It",
@@ -89,7 +89,7 @@ Event.create({
 Event.create({
   title: "Trouble getting a taxi",
   content: "Taxis are protesting Uber and Lyft, you won't be able to get one today.",
-  user_id: dan.id,
+  user_id: thomas.id,
   longitude: -122.430099,
   latitude: 37.768137,
   category: "Saw It",
@@ -116,7 +116,7 @@ Event.create({
 Event.create({
   title: "Water main broken",
   content: "Huge flood at 6th and King St.",
-  user_id: dan.id,
+  user_id: thomas.id,
   longitude: -122.424971,
   latitude: 37.764897,
   category: "Saw It",
