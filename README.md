@@ -1,5 +1,6 @@
 # Heard it? Seen it? Report it!
 
+####<https://whatsthefuss.herokuapp.com/>
 This application enables users to communicate sudden problems, emergencies or detours while walking or cycling.  A user can post a new event or "thank" another user for their heads-up.
 
 Contributors
@@ -39,4 +40,4 @@ Planned Features
 Screenshot
 ![Alt text](public/screenShotWtf.png?raw=true "WTF?!")
 
-Github Link: https://github.com/eamoses/wtf_app/
+
