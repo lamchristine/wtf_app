@@ -271,8 +271,8 @@ p {
   #map {
       display: block;
       position: relative;
-      height: 800px;
-      width: 100%;
+      height: calc(100vh - 52px);
+      width: 100vw;
       bottom:0;
       top:-1px;
       z-index:10;

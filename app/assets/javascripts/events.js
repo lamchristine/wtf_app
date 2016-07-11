@@ -2,12 +2,9 @@ var navHeight = 52;
 var latitude;
 var longitude;
 
-function setMapHeight(){
-  $("#map").css("height", $( window ).height() - navHeight);
-}
 
 $(document).on("ready page:load", function(){
-  
+
   // find users location
   geoFindMe();
 
@@ -25,10 +22,6 @@ $(document).on("ready page:load", function(){
 
 });
 
-// resets Google Map height on change of screen size
-$(window).resize(function(){
-  setMapHeight();
-});
 
 // Sets Users Latitude and Longitude on Event Create
 function setCoordinates() {
