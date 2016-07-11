@@ -42,7 +42,10 @@ class EventsController < ApplicationController
         :user_id => event.user.id
       })
     end
+
+
     @hash.last[:user_id] = @events.last.user.id
+
   end
 
 
@@ -69,7 +72,7 @@ class EventsController < ApplicationController
     else
       @event.address = params[:event][:address]
     end
-    
+
     @event.save
     @user.events << (@event)
 
