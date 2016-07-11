@@ -2,7 +2,7 @@ class EventsController < ApplicationController
 
   def index
 
-
+    @events = Event.last
     # Filters out events that were created longer than precribed time;
     # can be changed to e.g. 1 hour ago by changing 365.days.ago to 1.hours.ago
     if params[:unit] && params[:num]
@@ -69,7 +69,7 @@ class EventsController < ApplicationController
     else
       @event.address = params[:event][:address]
     end
-    
+
     @event.save
     @user.events << (@event)
 
