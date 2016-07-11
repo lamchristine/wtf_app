@@ -43,6 +43,7 @@ class EventsController < ApplicationController
       })
     end
 
+
     @hash.last[:user_id] = @events.last.user.id
 
   end
