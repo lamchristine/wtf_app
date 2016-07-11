@@ -346,7 +346,9 @@ p {
     -webkit-animation: spin2 1.5s infinite linear;
     font-size: 150px;
     position: absolute;
-    margin-top: 230px;
+    top: calc(40vh - 53px);
+    text-align: center;
+    align-self: center;
     opacity: .4;
   }
 
