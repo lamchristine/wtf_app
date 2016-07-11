@@ -147,20 +147,22 @@ function initMap(){
     }
   }, function onBuildMapSuccess(){
 
-    var eventhash = window.eventhash;
-    markers = handler.addMarkers(eventhash);
+    var eventhash,
+        lastEvent;
 
-    // Set last Event
-    var lastEvent = eventhash[eventhash.length-1];
+    if (window.eventhash) {
+      eventhash = window.eventhash;
+      lastEvent = eventhash[eventhash.length-1];
+      markers = handler.addMarkers(eventhash);
+    }
 
     // Grab current User ID from Navbar
     var currentUserId = parseInt($('#current_user').attr('data'));
 
-    var lat = lastEvent.lat;
-    var lng = lastEvent.lng;
+    var lat,
+        lng;
 
-
-    if (!isNaN(currentUserId)){   // If User is logged in
+    if (!isNaN(currentUserId) && lastEvent){   // If User is logged in
 
       // If the current User also made the last event, set Lat & Long to that events coordinates and send them there
       if (lastEvent.user_id === currentUserId){
@@ -185,8 +187,6 @@ function initMap(){
     //to set the map zoom
     // handler.fitMapToBounds();
 
-    // Resize map to the browser window
-    setMapHeight();
 
     // Remove loading icon
     $('#loading').addClass("display-none");
