@@ -33,12 +33,7 @@ function setCoordinates() {
 
 function geoFindMe() {
 
-  function success(position) {
-    latitude  = position.coords.latitude;
-    longitude = position.coords.longitude;
-    console.log("GeoSuccess: latitude = "+latitude);
-    console.log("GeoSuccess: longitude = "+longitude);
-
+  function buildMap(){
     // Set Users Lat + Long in Event Create
     if ($('body.events.new').length || $('body.events.edit').length) {
       console.log("about to set coordinates");
@@ -52,8 +47,29 @@ function geoFindMe() {
     }
   }
 
+  function success(position) {
+    latitude  = position.coords.latitude;
+    longitude = position.coords.longitude;
+    console.log("Hi! Your geo-coordinates are: ");
+    console.log("latitude = "+latitude);
+    console.log("longitude = "+longitude);
+    buildMap();
+  }
+
   function error() {
-    alert("Unable to retrieve your location");
+    alert("Unable to retrieve your exact location, but will use your IP's coordinates instead");
+
+    // Use ip as a backup location
+    $.getJSON("http://ipinfo.io", function(response) {
+      var ipLocation = response.loc;
+      var ipCoords = ipLocation.split(',');
+      latitude = parseInt(ipCoords[0]);
+      longitude = parseInt(ipCoords[1]);
+      console.log("Hi! Your IP's coordinates are: ");
+      console.log("latitude = "+latitude);
+      console.log("longitude = "+longitude);
+      buildMap();
+    });
   }
 
   navigator.geolocation.getCurrentPosition(success, error);
