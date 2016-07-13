@@ -43,8 +43,13 @@ class EventsController < ApplicationController
       })
     end
 
+    # if the filter doesn't remove all events
+    if @events.last
+      @hash.last[:user_id] = @events.last.user.id
+    else
+      nil
+    end
 
-    @hash.last[:user_id] = @events.last.user.id
 
   end
 
